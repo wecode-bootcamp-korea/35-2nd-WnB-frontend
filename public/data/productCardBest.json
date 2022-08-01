@@ -1,0 +1,97 @@
+{
+  "premium": [
+    {
+      "id": 1,
+      "name": "[예약발송]S.O.S 콜롬비아 & 브라질",
+      "eng_name": "Single Origin Set",
+      "img": [
+        {
+          "img_id": 3,
+          "img_url": "https://images.unsplash.com/photo-1595950411750-1323532fe72e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80&h=500"
+        },
+        {
+          "img_id": 4,
+          "img_url": "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1774&q=80"
+        }
+      ],
+      "taste": [
+        {
+          "taste_id": 5,
+          "taste_name": "Cool"
+        },
+        {
+          "taste_id": 6,
+          "taste_name": "Mango"
+        },
+        {
+          "taste_id": 7,
+          "taste_name": "Passion fruit"
+        }
+      ],
+      "roasting_date": "2022-07-15",
+      "price": "30000.00"
+    },
+    {
+      "id": 2,
+      "name": "[예약발송]S.O.S 콜롬비아 & 브라질",
+      "eng_name": "Single Origin Set",
+      "img": [
+        {
+          "img_id": 3,
+          "img_url": "https://images.unsplash.com/photo-1595950411750-1323532fe72e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80&h=500"
+        },
+        {
+          "img_id": 4,
+          "img_url": "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1774&q=80"
+        }
+      ],
+      "taste": [
+        {
+          "taste_id": 5,
+          "taste_name": "Cool"
+        },
+        {
+          "taste_id": 6,
+          "taste_name": "Mango"
+        },
+        {
+          "taste_id": 7,
+          "taste_name": "Passion fruit"
+        }
+      ],
+      "roasting_date": "2022-07-15",
+      "price": "30000.00"
+    },
+    {
+      "id": 3,
+      "name": "[예약발송]S.O.S 콜롬비아 & 브라질",
+      "eng_name": "Single Origin Set",
+      "img": [
+        {
+          "img_id": 3,
+          "img_url": "https://images.unsplash.com/photo-1595950411750-1323532fe72e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80&h=500"
+        },
+        {
+          "img_id": 4,
+          "img_url": "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1774&q=80"
+        }
+      ],
+      "taste": [
+        {
+          "taste_id": 5,
+          "taste_name": "Cool"
+        },
+        {
+          "taste_id": 6,
+          "taste_name": "Mango"
+        },
+        {
+          "taste_id": 7,
+          "taste_name": "Passion fruit"
+        }
+      ],
+      "roasting_date": "2022-07-15",
+      "price": "30000.00"
+    }
+  ]
+}
