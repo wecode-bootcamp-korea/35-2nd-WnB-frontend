@@ -27,6 +27,7 @@ const OnClickSearch = ({
   modalIsOpen,
   setModalIsOpen,
   switchModal,
+  reroad,
 }) => {
   let uselocation = useLocation();
   let is_detail = uselocation.pathname;
@@ -55,12 +56,15 @@ const OnClickSearch = ({
 
   return (
     <Section className={toggleNavbar ? null : 'toggle_open zIndex'}>
+      {!toggleNavbar ? (
+        <ModalOverLay onClick={() => setToggleNavbar(true)} ref={modalRef} />
+      ) : null}
       <OnClickSearchSection
         className={is_detail === '/detail' ? 'detail_width' : null}
       >
         <TopNavSection>
-          <LogoContainer>
-            <Logo src="../images/airbnbLogo.png" alt="logo" />
+          <LogoContainer onClick={reroad}>
+            <Logo src="/images/we&B_logo.png" alt="logo" />
           </LogoContainer>
           <MenuContainer>
             <Menu>숙소</Menu>
@@ -83,14 +87,6 @@ const OnClickSearch = ({
               </UserInfoContainer>
               {profileModal &&
                 (isToken ? swtichProfileModal['2'] : swtichProfileModal['1'])}
-              {profileModal ? (
-                <ProfileContainer
-                  profileModal={profileModal}
-                  setProfileModal={setProfileModal}
-                  modalIsOpen={modalIsOpen}
-                  setModalIsOpen={setModalIsOpen}
-                />
-              ) : null}
             </InfoPositionSet>
           </UserSection>
         </TopNavSection>
@@ -269,4 +265,13 @@ const UseerInfoIcon = styled.div`
 
 const InfoPositionSet = styled.div`
   position: relative;
+`;
+
+const ModalOverLay = styled.div`
+  position: absolute;
+  top: 170px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
 `;

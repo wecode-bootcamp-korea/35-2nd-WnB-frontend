@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ModalWrap = ({ setModalIsOpen, contents }) => {
+const ModalWrap = ({ setModalIsOpen, detail_images }) => {
+  console.log('ㄴ', detail_images);
   return (
     <ModalWraps>
       <ModalHeader>
@@ -10,13 +11,17 @@ const ModalWrap = ({ setModalIsOpen, contents }) => {
           onClick={() => setModalIsOpen(prev => !prev)}
         />
       </ModalHeader>
-      <ImgWrap>{contents}</ImgWrap>
+      <ImgWrap>
+        <img src={detail_images[0]} alt="#" />
+        <img src={detail_images[1]} alt="#" />
+        <img src={detail_images[2]} alt="#" />
+      </ImgWrap>
     </ModalWraps>
   );
 };
 
 const ModalWraps = styled.div`
-  margin: 0 auto;
+  margin: 80px auto;
   width: 100%;
 `;
 

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import LoginModal from '../Modal/LoginModal';
+import SignModal from '../Modal/SignModal';
 import BeforeSearch from './BeforeSearch';
 import OnClickSearch from './OnClickSearch';
 import SignModal from '../Modal/SignModal';
-import LoginModal from '../Modal/LoginModal';
 
 const Nav = () => {
   const [startDate, setStartDate] = useState(null);
@@ -12,6 +13,7 @@ const Nav = () => {
   const [toggleNavbar, setToggleNavbar] = useState(true);
   const [profileModal, setProfileModal] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [signupIsOpen, setSignupIsOpen] = useState(true);
   const [isToken, setIsToken] = useState(false);
   const modalRef = useRef();
 
@@ -22,6 +24,10 @@ const Nav = () => {
       setIsToken(false);
     }
   }, [isToken]);
+
+  const reroad = () => {
+    window.location.replace('/');
+  };
 
   const onChange = dates => {
     const [start, end] = dates;
@@ -50,6 +56,14 @@ const Nav = () => {
     setModalIsOpen(prev => !prev);
   };
 
+  // if (localStorage.getItem('key')) {
+  //   setModalIsOpen(false);
+  //   setSignupIsOpen(true);
+  // } else {
+  //   setModalIsOpen(true);
+  //   setSignupIsOpen(false);
+  // }
+
   return (
     <>
       <div>
@@ -72,6 +86,7 @@ const Nav = () => {
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           switchModal={switchModal}
+          reroad={reroad}
         />
         <OnClickSearch
           toggleNav={toggleNav}
@@ -94,50 +109,14 @@ const Nav = () => {
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           switchModal={switchModal}
+          reroad={reroad}
         />
       </div>
-      <>
-        <div>
-          <BeforeSearch
-            toggleNav={toggleNav}
-            toggleNavbar={toggleNavbar}
-            startDate={startDate}
-            endDate={endDate}
-            location={location}
-            guest={guest}
-            setLocation={setLocation}
-            onChange={onChange}
-            increseNum={increseNum}
-            decreseNum={decreseNum}
-            profileModal={profileModal}
-            setProfileModal={setProfileModal}
-            clickUserInfo={clickUserInfo}
-            modalIsOpen={modalIsOpen}
-            setModalIsOpen={setModalIsOpen}
-          />
-          <OnClickSearch
-            toggleNav={toggleNav}
-            toggleNavbar={toggleNavbar}
-            startDate={startDate}
-            endDate={endDate}
-            location={location}
-            guest={guest}
-            setLocation={setLocation}
-            onChange={onChange}
-            increseNum={increseNum}
-            decreseNum={decreseNum}
-            modalRef={modalRef}
-            setToggleNavbar={setToggleNavbar}
-            profileModal={profileModal}
-            setProfileModal={setProfileModal}
-            clickUserInfo={clickUserInfo}
-            modalIsOpen={modalIsOpen}
-            setModalIsOpen={setModalIsOpen}
-          />
-        </div>
+      {localStorage.getItem('key') ? (
         <SignModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+      ) : (
         <LoginModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
-      </>
+      )}
     </>
   );
 };

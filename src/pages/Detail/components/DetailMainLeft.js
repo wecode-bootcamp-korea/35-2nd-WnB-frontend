@@ -94,7 +94,7 @@ const DetailMainLeft = ({
           {facilities.map((els, idx) => {
             return (
               <OptionChild key={idx}>
-                <i className="fa-solid fa-kitchen-set" />
+                <img src={`/images/icons/${FACILDATE[els]}.png`} alt="icon" />
                 <p>{els}</p>
               </OptionChild>
             );
@@ -269,14 +269,13 @@ const Option = styled.div`
 
 const OptionChild = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   width: 50%;
 
-  i {
+  img {
     float: left;
-    margin-right: 20px;
-    font-size: 24px;
-    line-height: 30px;
+    margin-right: 10px;
+    width: 20px;
   }
 
   p {
@@ -289,3 +288,21 @@ const OptionChild = styled.div`
 `;
 
 export default DetailMainLeft;
+
+let FACILDATE = {
+  무선인터넷: 'wifi',
+  주방: 'kichen',
+  세탁기: 'washing',
+  에어컨: 'air',
+  난방: 'heat',
+  건조기: 'dryer',
+  수영장: 'pool',
+  자쿠지: 'jaku',
+  '건물 내 무료 주차': 'parking',
+  '아기 침대': 'baby',
+  헬스장: 'gym',
+  '바비큐 그릴': 'grill',
+  아침식사: 'food',
+  '실내 벽난로': 'fire',
+  '흡연 가능': 'ciga',
+};

@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CardSlide from '../../components/Card/CardSlide';
+import { BASE_URL } from '../../components/Config/Config';
 
 const ResDetail = () => {
   const [roomData, setRoomData] = useState([]);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const params = useParams();
+
+  console.log(roomData);
 
   useEffect(() => {
-    fetch(`http://10.58.0.31:8000/reservations/12123sad`)
+    fetch(`${BASE_URL}/reservations/${params.id}`)
       .then(res => res.json())
       .then(data => setRoomData(data.RESULT));
   }, []);
 
   const CancelHandler = () => {
-    fetch(`http://10.58.0.31:8000/reservations/12123sad`, {
+    fetch(`${BASE_URL}/reservations/${params.id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization: localStorage.getItem('Token'),
       },
-      body: JSON.stringify({
-        reservation_number,
-      }),
+      // body: JSON.stringify({
+      //   reservation_number,
+      // }),
     }).then(() => {
       let cancelConfirm = window.confirm('예약을 취소하시겠습니까?');
       if (cancelConfirm) {
@@ -34,32 +39,32 @@ const ResDetail = () => {
     });
   };
 
-  let {
-    reservation_number,
-    images,
-    address,
-    check_in,
-    check_out,
-    people,
-    description,
-    price,
-  } = roomData;
+  // let {
+  //   reservation_number,
+  //   images,
+  //   address,
+  //   check_in,
+  //   check_out,
+  //   people,
+  //   description,
+  //   price,
+  // } = roomData;
   return (
-    reservation_number && (
+    roomData && (
       <div>
-        <DetailContainer key={reservation_number}>
+        <DetailContainer key={roomData.reservation_number}>
           <ImgWrap>
-            <CardSlide images={images} />
+            <CardSlide images={roomData.images} />
           </ImgWrap>
           <DetailWrap>
             <CheckInOutWrap>
               <CheckInOut>
                 <ResDetailSubTit>체크인</ResDetailSubTit>
-                <p>{check_in}</p>
+                <p>{roomData.check_in}</p>
               </CheckInOut>
               <CheckInOut>
                 <ResDetailSubTit>체크아웃</ResDetailSubTit>
-                <p>{check_out}</p>
+                <p>{roomData.check_out}</p>
               </CheckInOut>
             </CheckInOutWrap>
             <div>
@@ -81,11 +86,11 @@ const ResDetail = () => {
             <ResDetailTit>예약 세부정보</ResDetailTit>
             <ResDetailItem>
               <ResDetailSubTit>게스트</ResDetailSubTit>
-              <p>게스트 {people}명</p>
+              <p>게스트 {roomData.people}명</p>
             </ResDetailItem>
             <ResDetailItem>
               <ResDetailSubTit>예약번호</ResDetailSubTit>
-              <p>{reservation_number}</p>
+              <p>{roomData.reservation_number}</p>
             </ResDetailItem>
             <div>
               {RESERVATION_INFO.map(({ id, link, icon, text }) => {
@@ -106,7 +111,7 @@ const ResDetail = () => {
             <ResDetailTit>찾아가는 방법</ResDetailTit>
             <ResDetailItem>
               <ResDetailSubTit>주소</ResDetailSubTit>
-              <p>{address}</p>
+              <p>{roomData.address}</p>
             </ResDetailItem>
             <div>
               {ADDRESS_INFO.map(({ id, link, icon, text }) => {
@@ -127,7 +132,7 @@ const ResDetail = () => {
             <ResDetailTit>숙소</ResDetailTit>
             <ResDetailItem>
               <ResDetailSubTit>숙소 설명</ResDetailSubTit>
-              <p>{description}</p>
+              <p>{roomData.description}</p>
             </ResDetailItem>
             <ResDetailLink to="/">
               <span>
@@ -150,7 +155,7 @@ const ResDetail = () => {
             <ResDetailTit>결제 정보</ResDetailTit>
             <ResDetailItem>
               <ResDetailSubTit>총 비용</ResDetailSubTit>
-              <p>₩{price} KRW</p>
+              <p>₩{roomData.price} KRW</p>
             </ResDetailItem>
             <div>
               {PAYMENT_INFO.map(({ id, link, icon, text }) => {
@@ -218,7 +223,7 @@ const RESERVATION_INFO = [
   {
     id: 1,
     link: '/',
-    icon: 'fa-globe',
+    icon: 'fa-globe fa-solid',
     text: '여행 일정표 PDF로 받기(비자신청용)',
   },
   { id: 2, link: '/', icon: 'fa-solid fa-print', text: '세부정보 인쇄하기' },
@@ -283,35 +288,28 @@ const ImgWrap = styled.div`
   .swiper {
     height: 40vw;
     border-radius: 12px;
-
     &:hover .swiper-button-prev,
     &:hover .swiper-button-next {
       opacity: 1;
     }
-
     .swiper-slide {
       height: auto;
     }
-
     .swiper-pagination-bullet {
       width: 6px;
       height: 6px;
       background: #fff;
       opacity: 0.4;
-
       &.swiper-pagination-bullet-active {
         opacity: 1;
       }
     }
-
     .swiper-button-prev {
       background-image: url(/images/prev.png);
     }
-
     .swiper-button-next {
       background-image: url(/images/next.png);
     }
-
     .swiper-button-prev,
     .swiper-button-next {
       background-color: #fff;
@@ -327,23 +325,19 @@ const ImgWrap = styled.div`
       border: 1px solid #eee;
       top: auto;
       bottom: 5%;
-
       img {
         width: 16px;
         height: 16px;
         object-fit: unset;
       }
-
       &:after {
         content: none;
       }
     }
-
     .swiper-button-disabled {
       display: none;
     }
   }
-
   img {
     width: 100%;
     height: 100%;
@@ -382,11 +376,9 @@ const ResDetailLink = styled(Link)`
   border-bottom: 1px solid rgb(221, 221, 221);
   color: #222;
   text-decoration: none;
-
   &:last-child {
     border-bottom: 0;
   }
-
   i {
     padding-right: 16px;
   }
@@ -402,7 +394,6 @@ const ResDetailTit = styled.h2`
 const ResDetailItem = styled.div`
   padding: 24px 0;
   border-bottom: 1px solid rgb(221, 221, 221);
-
   p {
     padding: 8px 0;
     line-height: 20px;
