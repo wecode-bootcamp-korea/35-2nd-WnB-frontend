@@ -5,14 +5,16 @@ import {
   useJsApiLoader,
   InfoWindow,
 } from '@react-google-maps/api';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 function MyComponent({ center, MapStyle, markerData, zoom }) {
+  const navigate = useNavigate();
   const key = process.env.REACT_APP_MAPKEY;
   const [infoWindows, setInfoWindows] = useState(0);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: key,
+    googleMapsApiKey: 'AIzaSyAUo-MP_Un5CB4x9r2QxLxZSxW5-k8iBGc',
   });
 
   const [map, setMap] = useState(null);
@@ -30,31 +32,40 @@ function MyComponent({ center, MapStyle, markerData, zoom }) {
     >
       {markerData ? (
         markerData.map((mapData, idx) => {
-          let { Price, center, imgUrl, name, description, id } = mapData;
+          let {
+            room_price,
+            room_image,
+            room_name,
+            description,
+            room_id,
+            latitude,
+            longitude,
+          } = mapData;
 
           return (
             <>
               <Marker
                 onClick={() => {
-                  setInfoWindows(id);
+                  setInfoWindows(room_id);
                 }}
                 icon={`/images/marker_${
-                  infoWindows === id ? 'black' : 'white'
+                  infoWindows === room_id ? 'black' : 'white'
                 }.png`}
                 key={idx}
-                position={center}
+                position={{ lat: Number(latitude), lng: Number(longitude) }}
                 cursor="pointer"
                 label={{
-                  text: '' + Price,
-                  color: `${infoWindows === id ? 'white' : 'black'}`,
+                  text:
+                    '' + Math.floor(room_price).toLocaleString('ko-KR') + '원',
+                  color: `${infoWindows === room_id ? 'white' : 'black'}`,
                   fontSize: '16px',
                   fontWeight: 'bold',
                 }}
               />
 
-              {infoWindows === id && (
+              {infoWindows === room_id && (
                 <InfoWindow
-                  position={center}
+                  position={{ lat: Number(latitude), lng: Number(longitude) }}
                   shouldFocus={true}
                   onCloseClick={() => {
                     setInfoWindows(0);
@@ -62,14 +73,16 @@ function MyComponent({ center, MapStyle, markerData, zoom }) {
                 >
                   <InfoWindowStyle
                     onClick={() => {
-                      alert('상세페이지 이동');
+                      navigate(`/detail/${room_id}`);
                     }}
                   >
-                    <img src={imgUrl} alt="방사진" />
-                    <p>{name}</p>
+                    <img src={room_image[0]} alt="방사진" />
+                    <p>{room_name}</p>
 
                     <span>{description}</span>
-                    <p>₩{Price} / 박</p>
+                    <p>
+                      ₩{Math.floor(room_price).toLocaleString('ko-KR')} 원 / 박
+                    </p>
                   </InfoWindowStyle>
                 </InfoWindow>
               )}
@@ -89,6 +102,7 @@ const InfoWindowStyle = styled.div`
   width: 300px;
   transition: 0.5s;
   overflow: hidden;
+  cursor: pointer;
 
   img {
     width: 100%;

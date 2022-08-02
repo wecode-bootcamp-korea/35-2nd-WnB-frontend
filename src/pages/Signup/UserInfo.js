@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { BASE_URL } from '../../components/Config/Config';
 
-const UserInfo = () => {
+const UserInfo = ({ modalIsOpen, setModalIsOpen }) => {
   const navigate = useNavigate();
 
   const userData = () => {
-    fetch(`http://10.58.5.43:8000/users/additional-info`, {
+    fetch(`${BASE_URL}/users/additional-info`, {
       method: 'PATCH',
       headers: { Authorization: localStorage.getItem('Token') },
       body: JSON.stringify({
@@ -19,8 +20,9 @@ const UserInfo = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'USER_INFO_UPDATED') {
-          alert('회원가입에 성공했습니다!');
-          navigate('/main');
+          alert('회원정보 수정에 성공했습니다!');
+          setModalIsOpen(false);
+          navigate('/');
         } else {
           alert(`${MESSAAGE_ALERT[data.message]}`);
         }
@@ -52,6 +54,8 @@ const UserInfo = () => {
     regExp.test(FirstName) &&
     regExpPhonNumber.test(PhoneNumber) &&
     BirthDay.length !== 0;
+
+  console.log(inputValue);
 
   return (
     <div>

@@ -29,8 +29,8 @@
     ],
     "facilities": [
       "아침식사",
-      "실내 벽난로",
-      "흡연 가능",
+      "실내벽난로",
+      "흡연가능",
       "무선인터넷",
       "주방",
       "난방"
@@ -55,7 +55,8 @@
       "https://img.freepik.com/free-photo/modern-living-room-style_53876-144814.jpg?w=1060&t=st=1659513738~exp=1659514338~hmac=ad3b43aaeee60be995a752582755a0612bdee658aa638f03e29f8432093298e1",
       "https://img.freepik.com/free-photo/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf_105762-2096.jpg?w=1060&t=st=1659513712~exp=1659514312~hmac=f1edb33b25d75db9f5fe658e48db9fa4e83f631f3b57dfe573ae9af4348af2ff"
     ],
-    "review": []
+    "review": [],
+    "facilities": ["아침식사", "실내벽난로", "무선인터넷", "주방", "난방"]
   },
   {
     "host_id": 3,
@@ -78,7 +79,8 @@
     "review": [
       { "id": 1, "review": "가성비 좋습니다." },
       { "id": 2, "review": "위치도 좋고 향기나요" }
-    ]
+    ],
+    "facilities": ["아침식사", "실내벽난로", "흡연가능", "무선인터넷", "난방"]
   },
   {
     "host_id": 4,
@@ -101,6 +103,14 @@
     "review": [
       { "id": 1, "review": "재방문 의사 있음" },
       { "id": 2, "review": "화장실 냄새 나요" }
+    ],
+    "facilities": [
+      "아침식사",
+      "실내벽난로",
+      "흡연가능",
+      "무선인터넷",
+      "주방",
+      "난방"
     ]
   },
   {
@@ -122,7 +132,8 @@
       "https://img.freepik.com/free-photo/loft-luxury-living-room-with-bookshelf-near-dining-table_105762-1796.jpg?w=1060&t=st=1659506813~exp=1659507413~hmac=baa5f1fcbccaa92a4a3279a0177d01fcbfd003887f2e3f6d4aeb4961c7ff9bbb",
       "https://img.freepik.com/free-photo/interior-spacious-kitchen-with-concrete-wall-3d-rendering_41470-3590.jpg?w=900&t=st=1659507205~exp=1659507805~hmac=28d00ee00d8910f2b761be469530bc25feb4d46ae2cbfcfdbdade30de67fea43"
     ],
-    "review": []
+    "review": [],
+    "facilities": ["아침식사", "실내벽난로", "흡연가능", "무선인터넷"]
   },
   {
     "host_id": 6,
@@ -146,7 +157,8 @@
     "review": [
       { "id": 1, "review": "가성비 좋습니다." },
       { "id": 2, "review": "위치도 좋고 향기나요" }
-    ]
+    ],
+    "facilities": ["아침식사", "실내벽난로", "흡연가능", "무선인터넷", "난방"]
   },
   {
     "host_id": 7,
@@ -169,7 +181,8 @@
     "review": [
       { "id": 1, "review": "재방문 의사 있음" },
       { "id": 2, "review": "화장실 냄새 나요" }
-    ]
+    ],
+    "facilities": ["실내벽난로", "흡연가능", "무선인터넷", "주방", "난방"]
   },
   {
     "host_id": 8,
@@ -189,7 +202,8 @@
       "https://img.freepik.com/free-photo/yellow-sofa-wooden-table-living-room-interior-with-plant_41470-3559.jpg?w=1380&t=st=1659507019~exp=1659507619~hmac=8c86b42d5b204b09747f82f866f6fa42a1c77d55a93ad468e201b17bd5395a8b",
       "https://img.freepik.com/free-photo/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf_105762-2094.jpg?w=1060&t=st=1659507033~exp=1659507633~hmac=28ad0f6f70500fcc4ee849ec550016c033661dd042ee01f9b25a0dee7bf3bd90"
     ],
-    "review": []
+    "review": [],
+    "facilities": ["아침식사", "흡연가능", "무선인터넷", "주방", "난방"]
   },
   {
     "host_id": 9,
@@ -212,6 +226,14 @@
     "review": [
       { "id": 1, "review": "가성비 좋습니다." },
       { "id": 2, "review": "위치도 좋고 향기나요" }
+    ],
+    "facilities": [
+      "아침식사",
+      "실내벽난로",
+      "흡연가능",
+      "무선인터넷",
+      "주방",
+      "난방"
     ]
   },
   {
@@ -235,6 +257,14 @@
     "review": [
       { "id": 1, "review": "재방문 의사 있음" },
       { "id": 2, "review": "화장실 냄새 나요" }
+    ],
+    "facilities": [
+      "아침식사",
+      "실내벽난로",
+      "흡연가능",
+      "무선인터넷",
+      "주방",
+      "난방"
     ]
   },
   {
@@ -256,7 +286,15 @@
       "https://img.freepik.com/free-photo/3d-rendering-modern-dining-room-living-room-with-luxury-decor_105762-2000.jpg?w=1380&t=st=1659507099~exp=1659507699~hmac=7ec47a19872281c8e6cd019911632c850b6e9b5eb4dda089320ab3cda7e074f4",
       "https://img.freepik.com/free-photo/swimming-pool-house_181624-276.jpg?w=1060&t=st=1659507141~exp=1659507741~hmac=b155fc6e67a481559b91f5ae1d6512e730adb92804eb5c98f622c93f85395e2a"
     ],
-    "review": []
+    "review": [],
+    "facilities": [
+      "아침식사",
+      "실내벽난로",
+      "흡연가능",
+      "무선인터넷",
+      "주방",
+      "난방"
+    ]
   },
   {
     "host_id": 12,
@@ -280,6 +318,14 @@
     "review": [
       { "id": 1, "review": "가성비 좋습니다." },
       { "id": 2, "review": "위치도 좋고 향기나요" }
+    ],
+    "facilities": [
+      "아침식사",
+      "실내벽난로",
+      "흡연가능",
+      "무선인터넷",
+      "주방",
+      "난방"
     ]
   }
 ]

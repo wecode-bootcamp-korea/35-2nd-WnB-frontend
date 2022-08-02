@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FilterButton = () => {
+const FilterButton = ({ handleFilterModal }) => {
   return (
-    <FilterBtn>
+    <FilterBtn onClick={handleFilterModal}>
       <span>
         <img src="/images/filter.png" alt="filter" />
         필터

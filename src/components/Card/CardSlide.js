@@ -28,8 +28,6 @@ const CardSlide = ({ images }) => {
   );
 };
 
-export default CardSlide;
-
 const Carousel = styled(Swiper)`
   img {
     width: 100%;
@@ -37,3 +35,5 @@ const Carousel = styled(Swiper)`
     object-fit: cover;
   }
 `;
+
+export default CardSlide;

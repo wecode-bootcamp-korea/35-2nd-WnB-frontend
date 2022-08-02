@@ -41,7 +41,7 @@ const SignModal = props => {
     >
       <Close onClick={() => setModalIsOpen(prev => !prev)}>닫기</Close>
       <ModalWrap>
-        <Signup />
+        <Signup modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
       </ModalWrap>
     </Modal>
   );

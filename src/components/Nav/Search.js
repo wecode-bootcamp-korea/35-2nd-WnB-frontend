@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Location from './modal/Location';
 import Calender from './modal/Calender';
 import GuestType from './modal/GuestType';
+import { BASE_URL } from '../Config/Config';
 
 const Search = ({
   startDate,
@@ -61,13 +62,21 @@ const Search = ({
     e.stopPropagation();
 
     const startDay = startDate
-      ? `&sort=${toStringByFormatting(startDate, '-')}`
+      ? `&check_in=${toStringByFormatting(startDate, '-')}`
       : '';
-    const endDay = endDate ? `&sort=${toStringByFormatting(endDate, '-')}` : '';
-    const selectLocation = location ? `&sort=${location}` : '';
-    const totalGuest = guest ? `&sort=${guest}` : '';
+    const endDay = endDate
+      ? `&check_out=${toStringByFormatting(endDate, '-')}`
+      : '';
+    const selectLocation = location ? `&address=${location}` : '';
+    const totalGuest = guest ? `&maximum_occupancy=${guest}` : '';
 
-    navigate(`/rooms?${startDay}${endDay}${selectLocation}${totalGuest}`);
+    navigate(`/list?${startDay}${endDay}${selectLocation}${totalGuest}`);
+
+    fetch(
+      `${BASE_URL}/rooms?${startDay}${endDay}${selectLocation}${totalGuest}`
+    )
+      .then(res => res.json())
+      .then(data => console.log(data));
     setDateModalIsOpen(false);
     setLocationModalIsOpen(false);
     setGuestModalIsOpen(false);
@@ -98,9 +107,8 @@ const Search = ({
     <SearchSection>
       {locationModalIsOpen || dateModalIsOpen || guestModalIsOpen ? (
         <ModalOverLay onClick={overLayClick} ref={modalRef} />
-      ) : (
-        <ModalOverLayWhite onClick={overLayClick} ref={modalRef} />
-      )}
+      ) : // <ModalOverLayWhite onClick={overLayClick} ref={modalRef} />
+      null}
       <SearchBarContainer>
         <WrapperLocationContainer
           className={currentId === 1 ? 'is_open' : null}

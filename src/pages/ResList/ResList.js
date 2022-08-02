@@ -1,22 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { BASE_URL } from '../../components/Config/Config';
 
-const ResList = ({ roomData }) => {
+const ResList = () => {
+  const [roomData, setRoomData] = useState();
   const navigate = useNavigate();
 
-  const goToDetail = () => {
-    navigate(`/${roomData.reservation_number}`);
+  console.log(roomData);
+
+  const goToDetail = index => {
+    navigate(`/resDetail/${index}`);
   };
 
   useEffect(() => {
-    // fetch('http://10.58.0.31:8000/reservations', {
-    fetch('/data/RoomData.json', {
+    fetch(`${BASE_URL}/reservations`, {
       method: 'GET',
-      headers: { authorization: localStorage.getItem('token') },
+      headers: { authorization: localStorage.getItem('Token') },
     })
       .then(res => res.json())
-      .then(data => data.RESULT);
+      .then(data => setRoomData(data.RESULT));
   }, []);
 
   return (
@@ -24,36 +27,39 @@ const ResList = ({ roomData }) => {
       <ListTit>여행</ListTit>
       <ListSubTit>예정된 일정</ListSubTit>
       <ResWrap>
-        {roomData.map(
-          ({
-            reservation_number,
-            room,
-            check_in,
-            check_out,
-            address,
-            detail_address,
-            images,
-          }) => {
-            return reservation_number ? (
-              <ResItem key={reservation_number}>
-                <ResLinkToDetail onClick={goToDetail}>
-                  <ResImg>
-                    <img src={images} alt={room} />
-                  </ResImg>
-                  <ResInfo>
-                    <ResAddress>{address}</ResAddress>
-                    <p>{detail_address}</p>
-                    <p>
-                      {check_in} ~ {check_out}
-                    </p>
-                  </ResInfo>
-                </ResLinkToDetail>
-              </ResItem>
-            ) : (
-              <p>예약된 내역이 없습니다.</p>
-            );
-          }
-        )}
+        {roomData &&
+          roomData.map(
+            ({
+              reservation_number,
+              room,
+              check_in,
+              check_out,
+              address,
+              detail_address,
+              images,
+            }) => {
+              return reservation_number ? (
+                <ResItem key={reservation_number}>
+                  <ResLinkToDetail
+                    onClick={() => goToDetail(reservation_number)}
+                  >
+                    <ResImg>
+                      <img src={images} alt={room} />
+                    </ResImg>
+                    <ResInfo>
+                      <ResAddress>{room}</ResAddress>
+                      <p>{detail_address}</p>
+                      <p>
+                        {check_in} ~ {check_out}
+                      </p>
+                    </ResInfo>
+                  </ResLinkToDetail>
+                </ResItem>
+              ) : (
+                <p>예약된 내역이 없습니다.</p>
+              );
+            }
+          )}
       </ResWrap>
       <ResHelp>
         <p>
@@ -103,7 +109,6 @@ const ResLinkToDetail = styled.div`
 
 const ResImg = styled.div`
   margin-right: 16px;
-
   img {
     width: 120px;
     height: 120px;
@@ -125,7 +130,6 @@ const ResAddress = styled.p`
 const ResHelp = styled.div`
   padding: 24px 0 36px;
   border-top: 1px solid #ddd;
-
   a {
     color: #222;
     font-weight: 600;

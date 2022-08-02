@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import variables from '../../styles/variables';
 import FilterBtn from '../List/FilterButton';
 
-const MainCategory = () => {
+const MainCategory = ({
+  handleFilterModal,
+  currentTab,
+  setCurrentTab,
+  selectMenuHandler,
+  handleCategory,
+}) => {
   const [scrollY, setScrollY] = useState(0);
   const isBtnActive = scrollY > 30;
+  const [category, setCatecory] = useState([]);
   const stickyCate = () => {
     setScrollY(window.pageYOffset);
   };
@@ -17,7 +25,6 @@ const MainCategory = () => {
     };
   }, []);
 
-  const [category, setCatecory] = useState([]);
   useEffect(() => {
     fetch('/data/mainMockData.json')
       .then(res => res.json())
@@ -34,9 +41,21 @@ const MainCategory = () => {
     <MainTop className={isBtnActive ? 'active' : ''}>
       <CateWrap>
         <CateItem>
-          {category.map(({ id, img_url, name }) => {
+          {/* {category.map(({ id, img_url, name }) => {
             return (
               <Cate key={id}>
+                <img src={img_url} alt={name} />
+                <span>{name}</span>
+              </Cate>
+            );
+          })} */}
+          {category.map(({ id, img_url, name }) => {
+            return (
+              <Cate
+                key={id}
+                className={currentTab === id ? 'active' : ''}
+                onClick={() => handleCategory(id)}
+              >
                 <img src={img_url} alt={name} />
                 <span>{name}</span>
               </Cate>
@@ -44,7 +63,7 @@ const MainCategory = () => {
           })}
         </CateItem>
       </CateWrap>
-      <FilterBtn />
+      <FilterBtn handleFilterModal={handleFilterModal} />
     </MainTop>
   );
 };
@@ -88,7 +107,7 @@ const Cate = styled.div`
   img {
     width: 32px;
     padding-bottom: 8px;
-    filter: contrast(40%);
+    filter: contrast(30%);
   }
   span {
     color: #717171;
@@ -107,5 +126,17 @@ const Cate = styled.div`
 
   &:hover::after {
     background-color: #ddd;
+  }
+
+  &.active img {
+    filter: contrast(100%);
+  }
+
+  &.active span {
+    color: #222;
+  }
+  &.active::after {
+    color: #222;
+    background-color: #222;
   }
 `;

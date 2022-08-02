@@ -9,7 +9,7 @@ const Location = ({ setLocation }) => {
         <LocationMain>
           <ImgContainer>
             <LocationImg
-              src="../images/euro.webp"
+              src="/images/gyeonggido.png"
               alt="location"
               onClick={() => setLocation('경기도')}
             />
@@ -17,7 +17,7 @@ const Location = ({ setLocation }) => {
           </ImgContainer>
           <ImgContainer>
             <LocationImg
-              src="../images/easy.jpeg"
+              src="/images/incheon.png"
               alt="location"
               onClick={() => setLocation('인천')}
             />

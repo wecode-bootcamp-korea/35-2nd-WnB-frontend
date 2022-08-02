@@ -20,6 +20,7 @@ const BeforeSearch = ({
   modalIsOpen,
   setModalIsOpen,
   switchModal,
+  reroad,
 }) => {
   let uselocation = useLocation();
   let is_detail = uselocation.pathname;
@@ -42,6 +43,7 @@ const BeforeSearch = ({
         setProfileModal={setProfileModal}
         isToken={isToken}
         setIsToken={setIsToken}
+        switchModal={switchModal}
       />
     ),
   };
@@ -55,8 +57,8 @@ const BeforeSearch = ({
         className={is_detail === '/detail' ? 'detail_width' : null}
       >
         <TopNavSection>
-          <LogoContainer>
-            <Logo src="../images/airbnbLogo.png" alt="logo" />
+          <LogoContainer onClick={reroad}>
+            <Logo src="/images/we&B_logo.png" alt="logo" />
           </LogoContainer>
           <MenuContainer>
             <SmallSearchBox onClick={toggleNav}>
@@ -104,14 +106,6 @@ const BeforeSearch = ({
               </UserInfoContainer>
               {profileModal &&
                 (isToken ? swtichProfileModal['2'] : swtichProfileModal['1'])}
-              {profileModal ? (
-                <ProfileContainer
-                  profileModal={profileModal}
-                  setProfileModal={setProfileModal}
-                  modalIsOpen={modalIsOpen}
-                  setModalIsOpen={setModalIsOpen}
-                />
-              ) : null}
             </InfoPositionSet>
           </UserSection>
         </TopNavSection>

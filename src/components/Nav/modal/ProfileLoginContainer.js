@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ProfileLoginContainer = ({
@@ -6,11 +7,19 @@ const ProfileLoginContainer = ({
   setProfileModal,
   isToken,
   setIsToken,
+  switchModal,
 }) => {
+  const navigate = useNavigate();
   const deleteToken = () => {
     localStorage.removeItem('Token');
+    localStorage.removeItem('key');
     alert('로그아웃 되었습니다.');
     setIsToken(false);
+    setProfileModal(false);
+  };
+
+  const moveToResList = () => {
+    navigate('/resList');
     setProfileModal(false);
   };
 
@@ -25,7 +34,16 @@ const ProfileLoginContainer = ({
                 <TopContainer>
                   {Object.values(List).map((text, j) => {
                     return (
-                      <UserInfoMenu key={j}>
+                      <UserInfoMenu
+                        key={j}
+                        onClick={
+                          j === 2 || j === 3
+                            ? j === 3
+                              ? switchModal
+                              : moveToResList
+                            : null
+                        }
+                      >
                         <InfoMenuLogin>{text}</InfoMenuLogin>
                       </UserInfoMenu>
                     );
@@ -61,7 +79,7 @@ const CONTAINER = [
     1: '메세지',
     2: '알림',
     3: '여행',
-    4: '위시리스트',
+    4: '회원정보수정',
   },
 
   {

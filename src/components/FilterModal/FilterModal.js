@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Checkbox, FormControl, FormGroup } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -8,11 +8,12 @@ import BedRoom from './component/BedRoom';
 import Bed from './component/Bed';
 import BathRoom from './component/BathRoom';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
+import { BASE_URL } from '../Config/Config';
 
 const StayData = [
   {
     id: 1,
-    name: '집전체',
+    name: '집 전체',
     subTitle: '단독으로 사용하는 공간 전체',
     isChecked: false,
   },
@@ -31,15 +32,19 @@ const StayData = [
 ];
 
 const Amenities = [
-  { id: 1, name: '무선 인터넷', isChecked: false },
-  { id: 2, name: '주방', isChecked: false },
-  { id: 3, name: '세탁기', isChecked: false },
-  { id: 4, name: '건조기', isChecked: false },
-  { id: 5, name: '에어컨', isChecked: false },
+  { id: 1, name: '아침 식사', isChecked: false },
+  { id: 2, name: '실내 벽난로', isChecked: false },
+  { id: 3, name: '흡연 가능', isChecked: false },
+  { id: 4, name: '무선 인터넷', isChecked: false },
+  { id: 5, name: '주방', isChecked: false },
   { id: 6, name: '난방', isChecked: false },
 ];
 
-const FilterModal = ({ handleFilterModal }) => {
+const FilterModal = ({
+  handleFilterModal,
+  isFilterModal,
+  setIsFilterModal,
+}) => {
   const [stayData, setStayData] = useState([]);
   const [amenitiesData, setAmenitiesData] = useState([]);
   const [transferUserData, setTransferUserData] = useState([]);
@@ -56,8 +61,12 @@ const FilterModal = ({ handleFilterModal }) => {
     value: [100, 100000],
   });
   const copyData = useRef();
+  const beforeLocation = useRef();
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(transferUserData);
 
   useEffect(() => {
     setStayData(StayData);
@@ -65,16 +74,28 @@ const FilterModal = ({ handleFilterModal }) => {
   }, []);
 
   useEffect(() => {
-    fetch('/data/FilterData.json')
+    fetch(`${BASE_URL}/rooms${location.search}`)
       .then(res => res.json())
-      .then(
-        data => (
-          setTransferUserData(data),
-          (copyData.current = data),
-          setPriceSetting(data)
-        )
-      );
+      .then(data => {
+        setTransferUserData(data.result);
+        copyData.current = data.result;
+        setPriceSetting(data.result);
+      });
   }, []);
+
+  useEffect(() => {
+    beforeLocation.current = location.search.replace('?', '');
+  }, []);
+
+  let minimum =
+    priceSetting.length > 0
+      ? Math.min(...priceSetting.map(data => data.room_price))
+      : 100;
+
+  let maximum =
+    priceSetting.length > 0
+      ? Math.max(...priceSetting.map(data => data.room_price))
+      : 1000000;
 
   // 제 랜더링 용 useEffect
   useEffect(() => {
@@ -87,30 +108,25 @@ const FilterModal = ({ handleFilterModal }) => {
 
   //최소가격, 최대가격 결정
   const selectPrice = () => {
-    let minimum = Math.min.apply(
-      null,
-      transferUserData.map(data => data.price)
-    );
-    let maximum = Math.max.apply(
-      null,
-      transferUserData.map(data => data.price)
-    );
-    setMinValue(minimum);
-    setMaxValue(maximum);
-    setValue(prev => ({
-      ...prev,
-      min: minimum,
-      max: maximum,
-      value: [minimum, maximum],
-    }));
+    if (priceSetting.length) {
+      setMinValue(minimum);
+      setMaxValue(maximum);
+      setValue(prev => ({
+        ...prev,
+        min: minimum,
+        max: maximum,
+        value: [minimum, maximum],
+      }));
+    }
   };
 
   //평균값 계산
   const averageCalculate = () => {
     if (priceSetting.length) {
       let averagenum =
-        priceSetting.map(data => data.price).reduce((a, b) => a + b) /
-        priceSetting.length;
+        priceSetting
+          .map(data => Number(data.room_price))
+          .reduce((a, b) => a + b) / priceSetting.length;
       setAverage(Math.round(averagenum));
     }
   };
@@ -191,27 +207,31 @@ const FilterModal = ({ handleFilterModal }) => {
 
     const TempChecked = stayData
       .filter(item => item.isChecked)
-      .map(item => item.name);
+      .map(item => item.id);
     const AmentiChecked = amenitiesData.filter(item => item.isChecked);
 
     if (TempChecked.length) {
       updatelist = updatelist.filter(data =>
-        TempChecked.includes(data.room_type.name)
+        TempChecked.includes(data.room_type)
       );
     }
 
-    // 추후 데이터 받을 시 사용할 것입니다.
-    // if (AmentiChecked.length) {
-    //   const checkedType = AmentiChecked.map(data => data.name);
-    //   const isTrue = current => current === true;
-    //   updatelist = updatelist.filter(item =>
-    //     checkedType.map(data => item.type.join('').includes(data)).every(isTrue)
-    //   );
-    // }
+    if (AmentiChecked.length) {
+      const checkedType = AmentiChecked.map(data =>
+        data.name.replace(/(\s*)/g, '')
+      );
+      const isTrue = current => current === true;
+      updatelist = updatelist.filter(item =>
+        checkedType
+          .map(data => item.facilities.join('').includes(data))
+          .every(isTrue)
+      );
+    }
 
     if (priceSetting.length) {
       updatelist = updatelist.filter(
-        item => item.price >= value.value[0] && item.price <= value.value[1]
+        item =>
+          item.room_price >= value.value[0] && item.room_price <= value.value[1]
       );
     }
 
@@ -224,21 +244,29 @@ const FilterModal = ({ handleFilterModal }) => {
 
   // // 서버로 전송
   const submitFilterData = () => {
-    const sort_min = minValue && `&sort=${value.value[0]}`;
-    const sort_max = maxValue && `&sort=${value.value[1]}`;
-    const sort_type_name = stayData
+    const sort_min = minValue && `&min_price=${value.value[0]}`;
+    const sort_max = maxValue && `&max_price=${value.value[1]}`;
+    const sort_type_id = stayData
       .filter(item => item.isChecked)
-      .map(item => item.name);
-    const sort_type = sort_type_name
-      ? sort_type_name.map(data => `&sort=${data}`).join('')
+      .map(item => item.id);
+    const sort_type = sort_type_id
+      ? sort_type_id.map(data => `&room_type_id=${data}`).join('')
       : '';
-    const sort_bed = bedValue ? `&sort=${bedValue}` : '';
-    const sort_bedroom = bedroomValue ? `&sort=${bedroomValue}` : '';
-    const sort_bathroom = bathroomValue ? `&sort=${bathroomValue}` : '';
+    const sort_bed = bedValue ? `&bed=${bedValue}` : '';
+    const sort_bedroom = bedroomValue ? `&bedroom=${bedroomValue}` : '';
+    const sort_bathroom = bathroomValue ? `&bathroom=${bathroomValue}` : '';
+    const sort_facilities_name = amenitiesData
+      .filter(item => item.isChecked)
+      .map(item => item.name.replace(/(\s*)/g, ''));
+    const sort_facilities = sort_facilities_name
+      ? sort_facilities_name.map(data => `&facility_id=${data}`).join('')
+      : '';
 
     navigate(
-      `/rooms?${sort_min}${sort_max}${sort_type}${sort_bed}${sort_bedroom}${sort_bathroom}`
+      `/?${sort_min}${sort_max}${sort_type}${sort_bed}${sort_bedroom}${sort_bathroom}${sort_facilities}${beforeLocation.current}`
     );
+
+    setIsFilterModal(false);
   };
 
   return (
@@ -261,8 +289,8 @@ const FilterModal = ({ handleFilterModal }) => {
                 <SubTitle>{`평균 1박 요금은 ₩${average.toLocaleString()}입니다`}</SubTitle>
                 <WidthContents>
                   <AirbnbSlider
-                    minValue={minValue}
-                    maxValue={maxValue}
+                    minValue={minimum}
+                    maxValue={maximum}
                     setValue={setValue}
                     handleChange={handleChange}
                     value={value}
@@ -349,7 +377,7 @@ const FilterModal = ({ handleFilterModal }) => {
                 <WidthContents>
                   <FormGroup>
                     <InputSection>
-                      {amenitiesData.map(data => {
+                      {amenitiesData.map((data, i) => {
                         return (
                           <AmenitiesInput key={data.id}>
                             <Checkbox
@@ -382,7 +410,7 @@ const FilterModal = ({ handleFilterModal }) => {
             </FooterAllDeleteBox>
             <FooterRightLink onClick={submitFilterData}>
               <Link to="/">
-                {priceSetting.length && transferUserData.length
+                {priceSetting.length > 0 && transferUserData.length > 0
                   ? `숙소 ${transferUserData.length}개 표시`
                   : `숙소가 없습니다`}
               </Link>

@@ -35,7 +35,7 @@ const DetailMainRight = ({
       <BookingContainer detailNavBtn={detailNavBtn}>
         <div>
           <BookingContainerH1>
-            {price.toLocaleString('ko-KR')} 원
+            {Math.floor(price).toLocaleString('ko-KR')} 원
             <BookingContainerSpan>/박</BookingContainerSpan>
           </BookingContainerH1>
         </div>
@@ -64,9 +64,10 @@ const DetailMainRight = ({
           <p>예약 확정 전에는 요금이 청구되지 않습니다.</p>
           <BookingBillChild>
             <span>
-              {price.toLocaleString('ko-KR')} 원 x {endDate ? days : 1}박
+              {Math.floor(price).toLocaleString('ko-KR')} 원 x{' '}
+              {endDate ? days : 1}박
             </span>
-            <span>{(price * days).toLocaleString('ko-KR')} 원</span>
+            <span>{(Math.floor(price) * days).toLocaleString('ko-KR')} 원</span>
           </BookingBillChild>
           <BookingBillTotal>
             <BookingBillTotalSpan>총 합계</BookingBillTotalSpan>

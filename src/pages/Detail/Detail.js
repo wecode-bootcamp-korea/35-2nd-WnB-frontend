@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../../components/Config/Config';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import DetailTop from './components/DetailTop';
 import DetailPhoto from './components/DetailPhoto';
@@ -20,6 +21,8 @@ const Detail = () => {
   let [days, setDays] = useState(1);
   let [totalPee, setTotalPee] = useState(1);
   let [guests, setGuests] = useState(1);
+  const params = useParams();
+  const navigate = useNavigate();
 
   const newFormatDate = date => {
     let year = date.getFullYear();
@@ -33,10 +36,10 @@ const Detail = () => {
     endDate
       ? fetch(`${API.booking}`, {
           method: 'POST',
-          // headers: {
-          //   Authorization: localStorage.getItem('jwt'),
-
-          // },
+          headers: {
+            Authorization:
+              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OH0.5aGARoue-I92MCF8KW2n07p8tRMdxw_6zIgTYnXEn_Q',
+          },
           body: JSON.stringify({
             room: id,
             price: totalPee,
@@ -48,6 +51,7 @@ const Detail = () => {
           .then(response => response.json())
           .then(result => {
             result.MESSAGE === 'SUCCESS' && alert('예약완료');
+            navigate('/resList');
           })
       : alert('예약일을 선택해주세요');
   };
@@ -68,10 +72,12 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    fetch(`/data/detailMockData2.json`)
+    fetch(`${API.detail}/${params.id}`)
       .then(response => response.json())
-      .then(data => setItem(data[0]));
+      .then(data => setItem(data.result));
   }, []);
+
+  console.log(params);
 
   const {
     id,
@@ -167,9 +173,7 @@ const Detail = () => {
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           modalStyle={modalStyle}
-          contents={detail_images.map((els, idx) => {
-            return <img key={idx} src={els} alt="1" />;
-          })}
+          detail_images={detail_images}
         />
       </>
     )

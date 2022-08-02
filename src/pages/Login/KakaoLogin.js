@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../components/Config/Config';
 
 const KakaoLogin = () => {
   const location = useLocation();
@@ -7,17 +8,19 @@ const KakaoLogin = () => {
   const KAKAO_CODE = location.search.split('=')[1];
 
   const goSign = () => {
-    fetch(`http://10.58.5.43:8000/users/kakao/oauth`, {
+    fetch(`${BASE_URL}/users/kakao/oauth`, {
       method: 'GET',
       headers: { Authorization: localStorage.getItem('key') },
     })
       .then(res => res.json())
-      .then(data => {
-        if (localStorage.setItem('Token', data.token)) {
-          alert('회원가입창으로 이동합니다');
-          navigate('/');
-        }
-      });
+      .then(
+        data => (
+          localStorage.setItem('Token', data.token),
+          alert('환영합니다'),
+          // navigate('/')
+          window.location.replace('/')
+        )
+      );
   };
 
   //TOKEN 저장
