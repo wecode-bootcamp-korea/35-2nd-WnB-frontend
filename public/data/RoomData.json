@@ -1,0 +1,205 @@
+[
+  {
+    "host_id": 1,
+    "name": "Gahoe-dong, Jongno-gu의 집",
+    "address": "누상스튜디오(서촌,경복궁)",
+    "description": "[감성숙소] 도심속에서 캠핑의 낭만과 루프탑 라이프를 즐겨보세요:)",
+    "bed": 1,
+    "price": 60075,
+    "images": [
+      "https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg?w=1060&t=st=1659506548~exp=1659507148~hmac=936121162bd79438b956d23e0c42b3acca2363c4c2f2b988ad17bcbfc1dd00b5",
+      "https://img.freepik.com/free-photo/breakfast-wooden-table-with-natural-view_53876-139869.jpg?w=1060&t=st=1659506736~exp=1659507336~hmac=ba6d395ccedb626dfed3eea377b7880d9e17c93e34c8dd1fcbf6771cf24302a4",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
+      "https://img.freepik.com/free-photo/green-interior-modern-interior-living-room-style-with-soft-sofa-green-wall-3d-rendering_41470-3902.jpg?w=1060&t=st=1659507250~exp=1659507850~hmac=87f65bcec0f7f09e68ed98311f71537bc3e30c69fa13d8a05d7791b0a8671148",
+      "https://img.freepik.com/free-photo/3d-rendering-beautiful-luxury-bedroom-suite-hotel-with-tv-shelf_105762-2077.jpg?w=1060&t=st=1659513815~exp=1659514415~hmac=4206be509279b4bbf6e2ac92e9c07e8fe392fc279ca7da4e7d30ae76fde21679",
+      "https://img.freepik.com/free-photo/green-sofa-white-living-room-with-blank-table-mockup_43614-835.jpg?w=740&t=st=1659513785~exp=1659514385~hmac=0fac576f3bafcece2de59f78cb0e6c121c31607e76aa96297f4f873c6ff44b63",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
+      "https://img.freepik.com/free-photo/beautiful-shot-modern-house-kitchen_181624-2943.jpg?w=1060&t=st=1659507234~exp=1659507834~hmac=e631bbb4da3d68c27a900eb938e424e7596563a0fe39e7497f56b5bf2a42ee33"
+    ],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  },
+  {
+    "host_id": 2,
+    "name": "종로구의 게스트용 별채",
+    "address": "뷰가 멋있는 아름다운 한옥",
+    "description": "minihanok modern (near palaces, entire house)",
+    "bed": 2,
+    "price": 180990,
+    "images": [
+      "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-bookshelf_105762-2099.jpg?w=1060&t=st=1659506764~exp=1659507364~hmac=defd37ae5d46a1af77fe73a7d9425a5f723cc12ef3b64ce5b58eec3402ee3e50",
+      "https://img.freepik.com/free-photo/modern-living-room-style_53876-144814.jpg?w=1060&t=st=1659513738~exp=1659514338~hmac=ad3b43aaeee60be995a752582755a0612bdee658aa638f03e29f8432093298e1",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf_105762-2096.jpg?w=1060&t=st=1659513712~exp=1659514312~hmac=f1edb33b25d75db9f5fe658e48db9fa4e83f631f3b57dfe573ae9af4348af2ff"
+    ],
+    "review": []
+  },
+  {
+    "host_id": 3,
+    "name": "Buam-dong, Jongno-gu의 집",
+    "address": "북촌 아름다운 한옥",
+    "description": "NEW 시티뷰/ 안국역 / 북촌 경복궁 인사동 익선동 도보가능 / 넷플릭스 디즈니+",
+    "bed": 1,
+    "price": 416390,
+    "images": [
+      "https://img.freepik.com/free-photo/charming-yellow-house-with-wooden-windows-green-grassy-garden_181624-8074.jpg?w=1060&t=st=1659418490~exp=1659419090~hmac=f0a34f47b28cb5c7dcab703a4922556544214f502a950a232c068e9411d30015",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering_41470-3753.jpg?w=1060&t=st=1659506842~exp=1659507442~hmac=bdd0d9c47379217db6e6a84222638774b4c1d28b4b552092a074fd1446c3d909",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34"
+    ],
+    "review": [
+      { "id": 1, "review": "가성비 좋습니다." },
+      { "id": 2, "review": "위치도 좋고 향기나요" }
+    ]
+  },
+  {
+    "host_id": 4,
+    "name": "Gahoe-dong, Jongno-gu의 집",
+    "address": "누상스튜디오(서촌,경복궁)",
+    "description": "[감성숙소] 도심속에서 캠핑의 낭만과 루프탑 라이프를 즐겨보세요:)",
+    "bed": 1,
+    "price": 60075,
+    "images": [
+      "https://img.freepik.com/free-photo/solar-panels-roof-modern-house-harvesting-renewable-energy-with-solar-cell-panels-exterior-design-3d-rendering_41470-3654.jpg?w=1380&t=st=1659506630~exp=1659507230~hmac=59b78dd4037f4afc70e93dcec208ce28a4d412cbd0d860cfee2db8ddd660cc9f",
+      "https://img.freepik.com/free-photo/beautiful-view-blue-lake-captured-from-inside-villa_181624-10734.jpg?w=1060&t=st=1659418555~exp=1659419155~hmac=1a05005f64574157f20bc2b21c213a84e8c5b4bef3c470cc1b6fc6fe25577fbd",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-warm-tones-gray-armchair-with-wood-cabinet-3d-rendering_41470-3656.jpg?w=900&t=st=1659506798~exp=1659507398~hmac=871405d3935cf62a527e0d20ad088abac567de9b9b0b3d9d9cd0a4f2386ae1a9"
+    ],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" }
+    ]
+  },
+  {
+    "host_id": 5,
+    "name": "종로구의 게스트용 별채",
+    "address": "뷰가 멋있는 아름다운 한옥",
+    "description": "minihanok modern (near palaces, entire house)",
+    "bed": 2,
+    "price": 180990,
+    "images": [
+      "https://img.freepik.com/premium-photo/3d-rendering-house-visualisation_62754-1778.jpg?w=1380",
+      "https://img.freepik.com/premium-photo/interior-exterior-design-pool-villa-which-features-living-area_41487-217.jpg?w=1060",
+      "https://img.freepik.com/free-photo/loft-luxury-living-room-with-bookshelf-near-dining-table_105762-1796.jpg?w=1060&t=st=1659506813~exp=1659507413~hmac=baa5f1fcbccaa92a4a3279a0177d01fcbfd003887f2e3f6d4aeb4961c7ff9bbb",
+      "https://img.freepik.com/free-photo/interior-spacious-kitchen-with-concrete-wall-3d-rendering_41470-3590.jpg?w=900&t=st=1659507205~exp=1659507805~hmac=28d00ee00d8910f2b761be469530bc25feb4d46ae2cbfcfdbdade30de67fea43"
+    ],
+    "review": []
+  },
+  {
+    "host_id": 6,
+    "name": "Buam-dong, Jongno-gu의 집",
+    "address": "북촌 아름다운 한옥",
+    "description": "NEW 오션뷰/ 안국역 / 북촌 경복궁 인사동 익선동 도보가능 / 넷플릭스 디즈니+",
+    "bed": 1,
+    "price": 416390,
+    "images": [
+      "https://img.freepik.com/free-photo/modern-spacious-room-with-large-panoramic-window_7502-7289.jpg?w=1060&t=st=1659506674~exp=1659507274~hmac=95598fcb0f1a2eeab1ac521e258a28e5a9d09375f1889c219cc15dbf77dcc0f3",
+      "https://img.freepik.com/free-photo/swimming-pool_74190-7325.jpg?w=1060&t=st=1659506866~exp=1659507466~hmac=79e45b9d010a9b0e23458f9fd41ef7cced1e88b45ec48d34e18cfce5bae91726",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
+      "https://img.freepik.com/free-photo/white-wall-living-room-have-sofa-decoration-3d-rendering_41470-3282.jpg?w=1380&t=st=1659507217~exp=1659507817~hmac=1cdada0727a09d085c98e57d32122d4eff2d2fbe29a51701c06a38d38513f00f"
+    ],
+    "review": [
+      { "id": 1, "review": "가성비 좋습니다." },
+      { "id": 2, "review": "위치도 좋고 향기나요" }
+    ]
+  },
+  {
+    "host_id": 7,
+    "name": "Gahoe-dong, Jongno-gu의 집",
+    "address": "누상스튜디오(서촌,경복궁)",
+    "description": "[감성숙소] 도심속에서 캠핑의 낭만과 루프탑 라이프를 즐겨보세요:)",
+    "bed": 1,
+    "price": 60075,
+    "images": [
+      "https://img.freepik.com/free-photo/wide-shot-beautiful-architecture-modern-house_181624-3464.jpg?w=996&t=st=1659506971~exp=1659507571~hmac=5dd23c867edf7b5fd09b95530f246ffa8af51b50878f9d5da47bc1f2dafa69d4",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table_105762-2050.jpg?w=1060&t=st=1659506953~exp=1659507553~hmac=510bc5468789b069ea2c688c9bde04fab1c983820aeb8075e5fa4f0b799bcfd3",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-dining-room-living-room-with-luxury-decor_105762-1934.jpg?w=1060&t=st=1659506889~exp=1659507489~hmac=0d1066ca72ed7667679516888fcfdca0fe3c8b7307a4bb86432ac3ce0f8666c5"
+    ],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" }
+    ]
+  },
+  {
+    "host_id": 8,
+    "name": "종로구의 게스트용 별채",
+    "address": "뷰가 멋있는 아름다운 한옥",
+    "description": "minihanok modern (near palaces, entire house)",
+    "bed": 2,
+    "price": 180990,
+    "images": [
+      "https://img.freepik.com/free-photo/front-view-residential-apartment_53876-153434.jpg?w=900&t=st=1659506992~exp=1659507592~hmac=9f1def54dab2a57ac9eb3a78d7fcf7d4ab72e7a2009e2acbc61f5a09ca2580b9",
+      "https://img.freepik.com/free-photo/yellow-sofa-wooden-table-living-room-interior-with-plant_41470-3559.jpg?w=1380&t=st=1659507019~exp=1659507619~hmac=8c86b42d5b204b09747f82f866f6fa42a1c77d55a93ad468e201b17bd5395a8b",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf_105762-2094.jpg?w=1060&t=st=1659507033~exp=1659507633~hmac=28ad0f6f70500fcc4ee849ec550016c033661dd042ee01f9b25a0dee7bf3bd90"
+    ],
+    "review": []
+  },
+  {
+    "host_id": 9,
+    "name": "Buam-dong, Jongno-gu의 집",
+    "address": "북촌 아름다운 한옥",
+    "description": "산책하기 좋은 솔숲과 바다가 바로 보이는 저렴하고 좋은 객실",
+    "bed": 1,
+    "price": 416390,
+    "images": [
+      "https://img.freepik.com/free-photo/house-isolated-field_1303-23772.jpg?w=1060&t=st=1659507005~exp=1659507605~hmac=0ba6a298ccfcfb90a2e533f216bbfed79fb20e7241dd13e06eec5c5561e6c61d",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering_41470-3753.jpg?w=1060&t=st=1659506842~exp=1659507442~hmac=bdd0d9c47379217db6e6a84222638774b4c1d28b4b552092a074fd1446c3d909",
+      "https://img.freepik.com/free-photo/luxury-classic-modern-bedroom-suite-hotel_105762-1787.jpg?w=1060&t=st=1659507044~exp=1659507644~hmac=fed87e7a5aed75d8b8915c27e665ba40da3751b552299d112a3e533711dfc582"
+    ],
+    "review": [
+      { "id": 1, "review": "가성비 좋습니다." },
+      { "id": 2, "review": "위치도 좋고 향기나요" }
+    ]
+  },
+  {
+    "host_id": 10,
+    "name": "Gahoe-dong, Jongno-gu의 집",
+    "address": "누상스튜디오(서촌,경복궁)",
+    "description": "[감성숙소] 도심속에서 캠핑의 낭만과 루프탑 라이프를 즐겨보세요:)",
+    "bed": 1,
+    "price": 60075,
+    "images": [
+      "https://img.freepik.com/free-photo/solar-panels-roof-modern-house-harvesting-renewable-energy-with-solar-cell-panels-exterior-design-3d-rendering_41470-3654.jpg?w=1380&t=st=1659506630~exp=1659507230~hmac=59b78dd4037f4afc70e93dcec208ce28a4d412cbd0d860cfee2db8ddd660cc9f",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-bookshelf_105762-2104.jpg?w=1060&t=st=1659507060~exp=1659507660~hmac=02162a4aef866bb7cfb840baedf613d194fed8628ee492766d8032f1aaa63ab2",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table_105762-2053.jpg?w=1060&t=st=1659507070~exp=1659507670~hmac=bd8b8766bf8c88577e750c19596fbd637621575816be60d4e61485d058694b62"
+    ],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" }
+    ]
+  },
+  {
+    "host_id": 11,
+    "name": "종로구의 게스트용 별채",
+    "address": "뷰가 멋있는 아름다운 한옥",
+    "description": "minihanok modern (near palaces, entire house)",
+    "bed": 2,
+    "price": 180990,
+    "images": [
+      "https://img.freepik.com/free-photo/modern-country-houses-construction_1385-15.jpg?w=900&t=st=1659507501~exp=1659508101~hmac=ecf7bef9cfdb8ee3186dc9664c028cb749658a54d5341b894aec22ff4dea01d9",
+      "https://img.freepik.com/free-photo/interior-dark-blue-wall-with-yellow-sofa-decor-living-room_41470-3553.jpg?w=900&t=st=1659507082~exp=1659507682~hmac=bee182eb58424d4ca0159c7fd1fd73f1f1924dde3dc168043c1174a570d588ff",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-dining-room-living-room-with-luxury-decor_105762-2000.jpg?w=1380&t=st=1659507099~exp=1659507699~hmac=7ec47a19872281c8e6cd019911632c850b6e9b5eb4dda089320ab3cda7e074f4",
+      "https://img.freepik.com/free-photo/swimming-pool-house_181624-276.jpg?w=1060&t=st=1659507141~exp=1659507741~hmac=b155fc6e67a481559b91f5ae1d6512e730adb92804eb5c98f622c93f85395e2a"
+    ],
+    "review": []
+  },
+  {
+    "host_id": 12,
+    "name": "Buam-dong, Jongno-gu의 집",
+    "address": "북촌 아름다운 한옥",
+    "description": "모던한 인테리어와 함께 안락한 분위기를 느낄 수 있습니다",
+    "bed": 1,
+    "price": 416390,
+    "images": [
+      "https://img.freepik.com/free-photo/low-angle-shot-facade-white-modern-building-blue-clear-sky_181624-48219.jpg?w=1060&t=st=1659507155~exp=1659507755~hmac=fa892b04dfd0bd809b30dcbf765bceb899c593df28c583e53d9150c2c3f448c2",
+      "https://img.freepik.com/free-photo/empty-modern-room-with-furniture_23-2149178334.jpg?w=1060&t=st=1659507168~exp=1659507768~hmac=832a46b99de1201132a6ea3d9083d9bbfe2a20be2d660eb5e1a4dbad3055146b",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-luxury-bedroom-suite-bathroom_105762-1945.jpg?w=996&t=st=1659507126~exp=1659507726~hmac=45cd6ee60be75d99c38117920972b19362d3b72f8fd9bfd2d2d1cd687917eca4",
+      "https://img.freepik.com/free-photo/empty-flat-interrior-with-elements-decoration_1303-23910.jpg?w=1060&t=st=1659507189~exp=1659507789~hmac=658467d7d13ef4a605a7d9a2afaf834a51fffdd2ebb71ca38d77495ea590c9d6"
+    ],
+    "review": [
+      { "id": 1, "review": "가성비 좋습니다." },
+      { "id": 2, "review": "위치도 좋고 향기나요" }
+    ]
+  }
+]
