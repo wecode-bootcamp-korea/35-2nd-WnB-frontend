@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import BeforeSearch from './BeforeSearch';
 import OnClickSearch from './OnClickSearch';
 import SignModal from '../Modal/SignModal';
+import LoginModal from '../Modal/LoginModal';
 
 const Nav = () => {
   const [startDate, setStartDate] = useState(null);
@@ -135,6 +136,7 @@ const Nav = () => {
           />
         </div>
         <SignModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+        <LoginModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
       </>
     </>
   );

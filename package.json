@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-instantsearch-dom-maps": "^6.31.0",
     "react-modal": "^3.15.1",
+    "react-kakao-login": "^2.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "rheostat": "^4.1.1",
