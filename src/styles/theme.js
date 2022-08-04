@@ -5,6 +5,7 @@ const theme = {
   middleGrey: '#717171',
   deepGrey: '#222222',
   hoverGrey: '#DBDBDB',
+  symbol: '#7A0BC0',
 };
 
 export default theme;
