@@ -6,9 +6,6 @@ const ProfileContainer = ({
   setProfileModal,
   modalIsOpen,
   setModalIsOpen,
-  switchModal,
-  isToken,
-  setIsToken,
 }) => {
   const swtichModal = () => {
     setProfileModal(prev => !prev);
@@ -19,7 +16,7 @@ const ProfileContainer = ({
       <ModalOverlayInUserInfo onClick={() => setProfileModal(false)} />
       <ModalProfile onClick={e => e.stopPropagation()}>
         <TopContainer>
-          <UserInfoMenu onClick={switchModal}>
+          <UserInfoMenu onClick={swtichModal}>
             <InfoMenuLogin>로그인</InfoMenuLogin>
           </UserInfoMenu>
           <UserInfoMenu onClick={swtichModal}>
