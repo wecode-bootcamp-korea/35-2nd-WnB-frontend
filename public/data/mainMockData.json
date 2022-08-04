@@ -1,0 +1,328 @@
+[
+  {
+    "id": 1,
+    "name": "스위트 킴도",
+    "address": "경기도",
+    "detail_address": "파주시 법원읍 법원리 100-10",
+    "price": 60075,
+    "description": "바베큐(숯,그릴제공) 노래방 무료 기본조미료 제공,얼음정수기",
+    "latitude": "37.861573",
+    "longitude": "126.8982697",
+    "maximum_occupancy": 2,
+    "bedroom": 3,
+    "bathroom": 2,
+    "bed": 1,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 1,
+      "name": "아파트",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6b86eeae402869b96e13/download/1311979.png"
+    },
+    "room_type": {
+      "id": 1,
+      "name": "집전체"
+    },
+    "images": [
+      "https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg?w=1060&t=st=1659506548~exp=1659507148~hmac=936121162bd79438b956d23e0c42b3acca2363c4c2f2b988ad17bcbfc1dd00b5",
+      "https://img.freepik.com/free-photo/breakfast-wooden-table-with-natural-view_53876-139869.jpg?w=1060&t=st=1659506736~exp=1659507336~hmac=ba6d395ccedb626dfed3eea377b7880d9e17c93e34c8dd1fcbf6771cf24302a4",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/free-photo/green-sofa-white-living-room-with-blank-table-mockup_43614-835.jpg?w=740&t=st=1659513785~exp=1659514385~hmac=0fac576f3bafcece2de59f78cb0e6c121c31607e76aa96297f4f873c6ff44b63",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
+      "https://img.freepik.com/free-photo/beautiful-shot-modern-house-kitchen_181624-2943.jpg?w=1060&t=st=1659507234~exp=1659507834~hmac=e631bbb4da3d68c27a900eb938e424e7596563a0fe39e7497f56b5bf2a42ee33"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "뷰맛집 부기 펜션",
+    "address": "경기도",
+    "detail_address": "파주시 법원읍 직천리 478-3",
+    "price": 796458240,
+    "description": "부기네집🐢은 자연 친화적이고 자유로운 일상을 추구하는 소박한 자연 마을에 위치하고 있습니다.",
+    "latitude": "37.8940921",
+    "longitude": "126.924448",
+    "maximum_occupancy": 15,
+    "bedroom": 5,
+    "bathroom": 2,
+    "bed": 10,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 2,
+      "name": "주택",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6b84f406a256cb93cc36/download/1018573.png"
+    },
+    "room_type": {
+      "id": 1,
+      "name": "집전체"
+    },
+    "images": [
+      "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-bookshelf_105762-2099.jpg?w=1060&t=st=1659506764~exp=1659507364~hmac=defd37ae5d46a1af77fe73a7d9425a5f723cc12ef3b64ce5b58eec3402ee3e50",
+      "https://img.freepik.com/free-photo/modern-living-room-style_53876-144814.jpg?w=1060&t=st=1659513738~exp=1659514338~hmac=ad3b43aaeee60be995a752582755a0612bdee658aa638f03e29f8432093298e1",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf_105762-2096.jpg?w=1060&t=st=1659513712~exp=1659514312~hmac=f1edb33b25d75db9f5fe658e48db9fa4e83f631f3b57dfe573ae9af4348af2ff"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-bookshelf_105762-2099.jpg?w=1060&t=st=1659506764~exp=1659507364~hmac=defd37ae5d46a1af77fe73a7d9425a5f723cc12ef3b64ce5b58eec3402ee3e50",
+      "https://img.freepik.com/free-photo/modern-living-room-style_53876-144814.jpg?w=1060&t=st=1659513738~exp=1659514338~hmac=ad3b43aaeee60be995a752582755a0612bdee658aa638f03e29f8432093298e1",
+      "https://img.freepik.com/free-photo/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf_105762-2096.jpg?w=1060&t=st=1659513712~exp=1659514312~hmac=f1edb33b25d75db9f5fe658e48db9fa4e83f631f3b57dfe573ae9af4348af2ff"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "원이크힐링스테이",
+    "address": "경기도",
+    "detail_address": "파주시 적성면 청송로1066번길 29",
+    "price": 42124950,
+    "description": "아늑한 느낌이 살아있는 이 곳은 자연과 사람이 공존하는 힐링의 장소로 아이가 행복해지고 몸과 마음이 건강하게 자라길 바라는 엄마 , 아빠의 마음으로 지은 집입니다.☺️",
+    "latitude": "37.9552973",
+    "longitude": "126.9246197",
+    "maximum_occupancy": 5,
+    "bedroom": 5,
+    "bathroom": 3,
+    "bed": 3,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 3,
+      "name": "국립공원",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6b8793738a859c5e00f2/download/2509907.png"
+    },
+    "room_type": {
+      "id": 1,
+      "name": "집전체"
+    },
+    "images": [
+      "https://img.freepik.com/free-photo/low-angle-shot-facade-white-modern-building-blue-clear-sky_181624-48219.jpg?w=1060&t=st=1659507155~exp=1659507755~hmac=fa892b04dfd0bd809b30dcbf765bceb899c593df28c583e53d9150c2c3f448c2",
+      "https://img.freepik.com/free-photo/empty-modern-room-with-furniture_23-2149178334.jpg?w=1060&t=st=1659507168~exp=1659507768~hmac=832a46b99de1201132a6ea3d9083d9bbfe2a20be2d660eb5e1a4dbad3055146b",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-luxury-bedroom-suite-bathroom_105762-1945.jpg?w=996&t=st=1659507126~exp=1659507726~hmac=45cd6ee60be75d99c38117920972b19362d3b72f8fd9bfd2d2d1cd687917eca4",
+      "https://img.freepik.com/free-photo/empty-flat-interrior-with-elements-decoration_1303-23910.jpg?w=1060&t=st=1659507189~exp=1659507789~hmac=658467d7d13ef4a605a7d9a2afaf834a51fffdd2ebb71ca38d77495ea590c9d6"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/free-photo/low-angle-shot-facade-white-modern-building-blue-clear-sky_181624-48219.jpg?w=1060&t=st=1659507155~exp=1659507755~hmac=fa892b04dfd0bd809b30dcbf765bceb899c593df28c583e53d9150c2c3f448c2",
+      "https://img.freepik.com/free-photo/empty-modern-room-with-furniture_23-2149178334.jpg?w=1060&t=st=1659507168~exp=1659507768~hmac=832a46b99de1201132a6ea3d9083d9bbfe2a20be2d660eb5e1a4dbad3055146b",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-luxury-bedroom-suite-bathroom_105762-1945.jpg?w=996&t=st=1659507126~exp=1659507726~hmac=45cd6ee60be75d99c38117920972b19362d3b72f8fd9bfd2d2d1cd687917eca4",
+      "https://img.freepik.com/free-photo/empty-flat-interrior-with-elements-decoration_1303-23910.jpg?w=1060&t=st=1659507189~exp=1659507789~hmac=658467d7d13ef4a605a7d9a2afaf834a51fffdd2ebb71ca38d77495ea590c9d6"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": []
+  },
+  {
+    "id": 4,
+    "name": "선샤인으녕",
+    "address": "경기도",
+    "detail_address": "파주시 적성면 청송로1066번길 29",
+    "price": 65489130,
+    "description": "넓은 창문을 통해 놀라운 전망을 감상하며 발을 딛을 수 있는 온수 욕조가 우리의 중요한 매력 포인트입니다.",
+    "latitude": "37.9552973",
+    "longitude": "126.9246197",
+    "maximum_occupancy": 9,
+    "bedroom": 5,
+    "bathroom": 5,
+    "bed": 7,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 3,
+      "name": "국립공원",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6b8793738a859c5e00f2/download/2509907.png"
+    },
+    "room_type": {
+      "id": 1,
+      "name": "집전체"
+    },
+    "images": [
+      "https://img.freepik.com/free-photo/charming-yellow-house-with-wooden-windows-green-grassy-garden_181624-8074.jpg?w=1060&t=st=1659418490~exp=1659419090~hmac=f0a34f47b28cb5c7dcab703a4922556544214f502a950a232c068e9411d30015",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering_41470-3753.jpg?w=1060&t=st=1659506842~exp=1659507442~hmac=bdd0d9c47379217db6e6a84222638774b4c1d28b4b552092a074fd1446c3d909",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/free-photo/charming-yellow-house-with-wooden-windows-green-grassy-garden_181624-8074.jpg?w=1060&t=st=1659418490~exp=1659419090~hmac=f0a34f47b28cb5c7dcab703a4922556544214f502a950a232c068e9411d30015",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering_41470-3753.jpg?w=1060&t=st=1659506842~exp=1659507442~hmac=bdd0d9c47379217db6e6a84222638774b4c1d28b4b552092a074fd1446c3d909",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "타운밍하우스",
+    "address": "경기도",
+    "detail_address": "파주시 송촌동 소라지로327번길 126-20",
+    "price": 456798100,
+    "description": "마을 근처에 위치해 볼거리,즐길거리,문화공간이 많으며 친구,가족이 편안하게 쉬며,머물기에 적합한 넓고 쾌적한 넓은 숙소입니다.",
+    "latitude": "37.7544977",
+    "longitude": "126.688714",
+    "maximum_occupancy": 5,
+    "bedroom": 5,
+    "bathroom": 3,
+    "bed": 3,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 6,
+      "name": "캠핑",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6bb795531479cbca0def/download/4469267.png"
+    },
+    "room_type": {
+      "id": 1,
+      "name": "집전체"
+    },
+    "images": [
+      "https://img.freepik.com/free-photo/solar-panels-roof-modern-house-harvesting-renewable-energy-with-solar-cell-panels-exterior-design-3d-rendering_41470-3654.jpg?w=1380&t=st=1659506630~exp=1659507230~hmac=59b78dd4037f4afc70e93dcec208ce28a4d412cbd0d860cfee2db8ddd660cc9f",
+      "https://img.freepik.com/free-photo/beautiful-view-blue-lake-captured-from-inside-villa_181624-10734.jpg?w=1060&t=st=1659418555~exp=1659419155~hmac=1a05005f64574157f20bc2b21c213a84e8c5b4bef3c470cc1b6fc6fe25577fbd",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-warm-tones-gray-armchair-with-wood-cabinet-3d-rendering_41470-3656.jpg?w=900&t=st=1659506798~exp=1659507398~hmac=871405d3935cf62a527e0d20ad088abac567de9b9b0b3d9d9cd0a4f2386ae1a9"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/free-photo/solar-panels-roof-modern-house-harvesting-renewable-energy-with-solar-cell-panels-exterior-design-3d-rendering_41470-3654.jpg?w=1380&t=st=1659506630~exp=1659507230~hmac=59b78dd4037f4afc70e93dcec208ce28a4d412cbd0d860cfee2db8ddd660cc9f",
+      "https://img.freepik.com/free-photo/beautiful-view-blue-lake-captured-from-inside-villa_181624-10734.jpg?w=1060&t=st=1659418555~exp=1659419155~hmac=1a05005f64574157f20bc2b21c213a84e8c5b4bef3c470cc1b6fc6fe25577fbd",
+      "https://img.freepik.com/free-photo/living-room-interior-wall-warm-tones-gray-armchair-with-wood-cabinet-3d-rendering_41470-3656.jpg?w=900&t=st=1659506798~exp=1659507398~hmac=871405d3935cf62a527e0d20ad088abac567de9b9b0b3d9d9cd0a4f2386ae1a9"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "억화n백수하우스",
+    "address": "인천광역시",
+    "detail_address": "강화군 길상면 선두리 892-13번지",
+    "price": 752986120,
+    "description": "평온한 전원주택 마을에 위치해 있는 억화n백수하우스는 300평대 독채입니다.",
+    "latitude": "37.6075001",
+    "longitude": "126.4795876",
+    "maximum_occupancy": 50,
+    "bedroom": 20,
+    "bathroom": 10,
+    "bed": 100,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 5,
+      "name": "수영장",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6bb5bad41981e768bb55/download/3131742.png"
+    },
+    "room_type": {
+      "id": 1,
+      "name": "집전체"
+    },
+    "images": [
+      "https://img.freepik.com/premium-photo/3d-rendering-house-visualisation_62754-1778.jpg?w=1380",
+      "https://img.freepik.com/premium-photo/interior-exterior-design-pool-villa-which-features-living-area_41487-217.jpg?w=1060",
+      "https://img.freepik.com/free-photo/loft-luxury-living-room-with-bookshelf-near-dining-table_105762-1796.jpg?w=1060&t=st=1659506813~exp=1659507413~hmac=baa5f1fcbccaa92a4a3279a0177d01fcbfd003887f2e3f6d4aeb4961c7ff9bbb",
+      "https://img.freepik.com/free-photo/interior-spacious-kitchen-with-concrete-wall-3d-rendering_41470-3590.jpg?w=900&t=st=1659507205~exp=1659507805~hmac=28d00ee00d8910f2b761be469530bc25feb4d46ae2cbfcfdbdade30de67fea43"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/premium-photo/3d-rendering-house-visualisation_62754-1778.jpg?w=1380",
+      "https://img.freepik.com/premium-photo/interior-exterior-design-pool-villa-which-features-living-area_41487-217.jpg?w=1060",
+      "https://img.freepik.com/free-photo/loft-luxury-living-room-with-bookshelf-near-dining-table_105762-1796.jpg?w=1060&t=st=1659506813~exp=1659507413~hmac=baa5f1fcbccaa92a4a3279a0177d01fcbfd003887f2e3f6d4aeb4961c7ff9bbb",
+      "https://img.freepik.com/free-photo/interior-spacious-kitchen-with-concrete-wall-3d-rendering_41470-3590.jpg?w=900&t=st=1659507205~exp=1659507805~hmac=28d00ee00d8910f2b761be469530bc25feb4d46ae2cbfcfdbdade30de67fea43"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "게임승연타운",
+    "address": "인천광역시",
+    "detail_address": "강화군 길상면 해안남로 653",
+    "price": 48020,
+    "description": "게임승연타운은 독주택 입니다.",
+    "latitude": "37.6010402",
+    "longitude": "126.4922905",
+    "maximum_occupancy": 2,
+    "bedroom": 0,
+    "bathroom": 2,
+    "bed": 2,
+    "host": {
+      "id": 1,
+      "first_name": "Philep",
+      "last_name": "kim",
+      "phone_number": "010-0000-0000",
+      "profile_img": "https://a0.muscache.com/im/pictures/user/0ea3cd74-7ce9-4f59-bf57-334651d552c6.jpg?im_w=240"
+    },
+    "category": {
+      "id": 4,
+      "name": "해변",
+      "img_url": "https://trello.com/1/cards/62ea1074bf470a6680cfcd85/attachments/62ea6b88d58fa2516b6d400f/download/2664589.png"
+    },
+    "room_type": {
+      "id": 2,
+      "name": "개인실"
+    },
+    "images": [
+      "https://img.freepik.com/free-photo/modern-country-houses-construction_1385-15.jpg?w=900&t=st=1659507501~exp=1659508101~hmac=ecf7bef9cfdb8ee3186dc9664c028cb749658a54d5341b894aec22ff4dea01d9",
+      "https://img.freepik.com/free-photo/interior-dark-blue-wall-with-yellow-sofa-decor-living-room_41470-3553.jpg?w=900&t=st=1659507082~exp=1659507682~hmac=bee182eb58424d4ca0159c7fd1fd73f1f1924dde3dc168043c1174a570d588ff",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-dining-room-living-room-with-luxury-decor_105762-2000.jpg?w=1380&t=st=1659507099~exp=1659507699~hmac=7ec47a19872281c8e6cd019911632c850b6e9b5eb4dda089320ab3cda7e074f4",
+      "https://img.freepik.com/free-photo/swimming-pool-house_181624-276.jpg?w=1060&t=st=1659507141~exp=1659507741~hmac=b155fc6e67a481559b91f5ae1d6512e730adb92804eb5c98f622c93f85395e2a"
+    ],
+    "detail_images": [
+      "https://img.freepik.com/free-photo/modern-country-houses-construction_1385-15.jpg?w=900&t=st=1659507501~exp=1659508101~hmac=ecf7bef9cfdb8ee3186dc9664c028cb749658a54d5341b894aec22ff4dea01d9",
+      "https://img.freepik.com/free-photo/interior-dark-blue-wall-with-yellow-sofa-decor-living-room_41470-3553.jpg?w=900&t=st=1659507082~exp=1659507682~hmac=bee182eb58424d4ca0159c7fd1fd73f1f1924dde3dc168043c1174a570d588ff",
+      "https://img.freepik.com/free-photo/3d-rendering-modern-dining-room-living-room-with-luxury-decor_105762-2000.jpg?w=1380&t=st=1659507099~exp=1659507699~hmac=7ec47a19872281c8e6cd019911632c850b6e9b5eb4dda089320ab3cda7e074f4",
+      "https://img.freepik.com/free-photo/swimming-pool-house_181624-276.jpg?w=1060&t=st=1659507141~exp=1659507741~hmac=b155fc6e67a481559b91f5ae1d6512e730adb92804eb5c98f622c93f85395e2a"
+    ],
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "review": [
+      { "id": 1, "review": "재방문 의사 있음" },
+      { "id": 2, "review": "화장실 냄새 나요" },
+      { "id": 3, "review": "교통편 굿" }
+    ]
+  }
+]
