@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import BeforeSearch from './BeforeSearch';
 import OnClickSearch from './OnClickSearch';
+import SignModal from '../Modal/SignModal';
 
 const Nav = () => {
   const [startDate, setStartDate] = useState(null);
@@ -49,50 +50,93 @@ const Nav = () => {
   };
 
   return (
-    <div>
-      <BeforeSearch
-        toggleNav={toggleNav}
-        toggleNavbar={toggleNavbar}
-        startDate={startDate}
-        endDate={endDate}
-        location={location}
-        guest={guest}
-        setLocation={setLocation}
-        onChange={onChange}
-        increseNum={increseNum}
-        decreseNum={decreseNum}
-        profileModal={profileModal}
-        setProfileModal={setProfileModal}
-        clickUserInfo={clickUserInfo}
-        isToken={isToken}
-        setIsToken={setIsToken}
-        modalIsOpen={modalIsOpen}
-        setModalIsOpen={setModalIsOpen}
-        switchModal={switchModal}
-      />
-      <OnClickSearch
-        toggleNav={toggleNav}
-        toggleNavbar={toggleNavbar}
-        startDate={startDate}
-        endDate={endDate}
-        location={location}
-        guest={guest}
-        setLocation={setLocation}
-        onChange={onChange}
-        increseNum={increseNum}
-        decreseNum={decreseNum}
-        modalRef={modalRef}
-        setToggleNavbar={setToggleNavbar}
-        profileModal={profileModal}
-        setProfileModal={setProfileModal}
-        clickUserInfo={clickUserInfo}
-        isToken={isToken}
-        setIsToken={setIsToken}
-        modalIsOpen={modalIsOpen}
-        setModalIsOpen={setModalIsOpen}
-        switchModal={switchModal}
-      />
-    </div>
+    <>
+      <div>
+        <BeforeSearch
+          toggleNav={toggleNav}
+          toggleNavbar={toggleNavbar}
+          startDate={startDate}
+          endDate={endDate}
+          location={location}
+          guest={guest}
+          setLocation={setLocation}
+          onChange={onChange}
+          increseNum={increseNum}
+          decreseNum={decreseNum}
+          profileModal={profileModal}
+          setProfileModal={setProfileModal}
+          clickUserInfo={clickUserInfo}
+          isToken={isToken}
+          setIsToken={setIsToken}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          switchModal={switchModal}
+        />
+        <OnClickSearch
+          toggleNav={toggleNav}
+          toggleNavbar={toggleNavbar}
+          startDate={startDate}
+          endDate={endDate}
+          location={location}
+          guest={guest}
+          setLocation={setLocation}
+          onChange={onChange}
+          increseNum={increseNum}
+          decreseNum={decreseNum}
+          modalRef={modalRef}
+          setToggleNavbar={setToggleNavbar}
+          profileModal={profileModal}
+          setProfileModal={setProfileModal}
+          clickUserInfo={clickUserInfo}
+          isToken={isToken}
+          setIsToken={setIsToken}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          switchModal={switchModal}
+        />
+      </div>
+      <>
+        <div>
+          <BeforeSearch
+            toggleNav={toggleNav}
+            toggleNavbar={toggleNavbar}
+            startDate={startDate}
+            endDate={endDate}
+            location={location}
+            guest={guest}
+            setLocation={setLocation}
+            onChange={onChange}
+            increseNum={increseNum}
+            decreseNum={decreseNum}
+            profileModal={profileModal}
+            setProfileModal={setProfileModal}
+            clickUserInfo={clickUserInfo}
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+          />
+          <OnClickSearch
+            toggleNav={toggleNav}
+            toggleNavbar={toggleNavbar}
+            startDate={startDate}
+            endDate={endDate}
+            location={location}
+            guest={guest}
+            setLocation={setLocation}
+            onChange={onChange}
+            increseNum={increseNum}
+            decreseNum={decreseNum}
+            modalRef={modalRef}
+            setToggleNavbar={setToggleNavbar}
+            profileModal={profileModal}
+            setProfileModal={setProfileModal}
+            clickUserInfo={clickUserInfo}
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+          />
+        </div>
+        <SignModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+      </>
+    </>
   );
 };
 

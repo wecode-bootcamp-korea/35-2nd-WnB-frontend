@@ -104,6 +104,14 @@ const BeforeSearch = ({
               </UserInfoContainer>
               {profileModal &&
                 (isToken ? swtichProfileModal['2'] : swtichProfileModal['1'])}
+              {profileModal ? (
+                <ProfileContainer
+                  profileModal={profileModal}
+                  setProfileModal={setProfileModal}
+                  modalIsOpen={modalIsOpen}
+                  setModalIsOpen={setModalIsOpen}
+                />
+              ) : null}
             </InfoPositionSet>
           </UserSection>
         </TopNavSection>
