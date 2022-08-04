@@ -25,7 +25,7 @@ const ItemCard = ({ roomData }) => {
             </CardGrade>
           </CardTitle>
           <Address>{address}</Address>
-          <Descrition>{description}</Descrition>
+          <Description>{description}</Description>
           <BedCount>침대 {bed}개</BedCount>
           <CardPrice>
             <DayPrice>￦{price.toLocaleString()} /박</DayPrice>
@@ -171,8 +171,8 @@ const Address = styled.p`
   overflow: hidden;
 `;
 
-const Descrition = styled.p`
-  display: ${props => (props.path ? 'block' : 'none')};
+const Description = styled.p`
+  display: ${props => (props.path ? 'none' : 'block')};
   padding-right: 20%;
   color: #717171;
   white-space: nowrap;
