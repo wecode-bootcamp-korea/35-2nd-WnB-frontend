@@ -13,18 +13,14 @@ const Footer = () => {
         <FooterTop>
           <span>© 2022 AirWnB Inc.</span>
           <FooterUl>
-            <li>
-              <i class="fa-brands fa-facebook" />
-            </li>
-            <li>
-              <i class="fa-brands fa-instagram" />
-            </li>
-            <li>
-              <i class="fa-brands fa-twitter" />
-            </li>
-            <li>
-              <i class="fa-brands fa-youtube" />
-            </li>
+            {FOOTERDATA &&
+              FOOTERDATA.map((els, idx) => {
+                return (
+                  <li key={idx}>
+                    <i className={`fa-brands fa-${els}`} />
+                  </li>
+                );
+              })}
           </FooterUl>
         </FooterTop>
         <FooterBottom>
@@ -46,8 +42,11 @@ const Footer = () => {
 };
 
 const FooterContainer = styled.div`
-  border: 1px solid #eee;
+  position: absolute;
+  width: 100%;
   padding: 30px 0;
+  border: 1px solid #eee;
+  background-color: white;
 `;
 
 const Inner = styled.div`
@@ -92,5 +91,5 @@ const FooterBottom = styled.div`
   color: rgb(113, 113, 113);
   word-break: keep-all;
 `;
-
 export default Footer;
+const FOOTERDATA = ['facebook', 'instagram', 'twitter', 'youtube'];

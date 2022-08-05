@@ -1,27 +1,21 @@
 import React, { useCallback, useState } from 'react';
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  Marker,
+  useJsApiLoader,
+  InfoWindow,
+} from '@react-google-maps/api';
+import styled from 'styled-components';
 
-const containerStyle = {
-  width: '100%',
-  height: '500px',
-};
-
-function MyComponent({ center }) {
+function MyComponent({ center, MapStyle, markerData, zoom }) {
+  const key = process.env.REACT_APP_MAPKEY;
+  const [infoWindows, setInfoWindows] = useState(0);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyAUo-MP_Un5CB4x9r2QxLxZSxW5-k8iBGc',
+    googleMapsApiKey: key,
   });
 
   const [map, setMap] = useState(null);
-
-  const onLoad = useCallback(
-    function callback(map) {
-      const bounds = new window.google.maps.LatLngBounds(center);
-      map.fitBounds(bounds);
-      setMap(map);
-    },
-    [center]
-  );
 
   const onUnmount = useCallback(function callback(map) {
     setMap(null);
@@ -29,19 +23,92 @@ function MyComponent({ center }) {
 
   return isLoaded ? (
     <GoogleMap
-      mapContainerStyle={containerStyle}
+      mapContainerStyle={MapStyle}
       center={center}
-      zoom={10}
-      onLoad={onLoad}
+      zoom={zoom}
       onUnmount={onUnmount}
     >
-      {/* Child components, such as markers, info windows, etc. */}
+      {markerData ? (
+        markerData.map((mapData, idx) => {
+          let { Price, center, imgUrl, name, description, id } = mapData;
 
-      <Marker position={center} icon="/images/icons/home.png" content="sada" />
+          return (
+            <>
+              <Marker
+                onClick={() => {
+                  setInfoWindows(id);
+                }}
+                icon={`/images/marker_${
+                  infoWindows === id ? 'black' : 'white'
+                }.png`}
+                key={idx}
+                position={center}
+                cursor="pointer"
+                label={{
+                  text: '' + Price,
+                  color: `${infoWindows === id ? 'white' : 'black'}`,
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                }}
+              />
+
+              {infoWindows === id && (
+                <InfoWindow
+                  position={center}
+                  shouldFocus={true}
+                  onCloseClick={() => {
+                    setInfoWindows(0);
+                  }}
+                >
+                  <InfoWindowStyle
+                    onClick={() => {
+                      alert('상세페이지 이동');
+                    }}
+                  >
+                    <img src={imgUrl} alt="방사진" />
+                    <p>{name}</p>
+
+                    <span>{description}</span>
+                    <p>₩{Price} / 박</p>
+                  </InfoWindowStyle>
+                </InfoWindow>
+              )}
+            </>
+          );
+        })
+      ) : (
+        <Marker position={center} icon="/images/icons/home.png" />
+      )}
     </GoogleMap>
   ) : (
     <div />
   );
 }
+
+const InfoWindowStyle = styled.div`
+  width: 300px;
+  transition: 0.5s;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 200px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 19px;
+  }
+
+  span {
+    color: rgb(113, 113, 113);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 19px;
+  }
+`;
 
 export default MyComponent;

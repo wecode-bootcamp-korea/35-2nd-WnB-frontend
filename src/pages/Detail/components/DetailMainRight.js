@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import DetailMainRightBooking from './DetailMainRightBooking';
 
-const DetailMainRight = ({ price, maximum_occupancy }) => {
+const DetailMainRight = ({ price, maximum_occupancy, id }) => {
   let [days, setDays] = useState(1);
   let [totalPee, setTotalPee] = useState(1);
   let [guests, setGuests] = useState(1);
@@ -26,9 +26,10 @@ const DetailMainRight = ({ price, maximum_occupancy }) => {
           guests={guests}
           maximum_occupancy={maximum_occupancy}
           setGuests={setGuests}
+          id={id}
+          totalPee={totalPee}
         />
 
-        <BookingBtn> 예약하기</BookingBtn>
         <BookingBill>
           <p>예약 확정 전에는 요금이 청구되지 않습니다.</p>
           <BookingBillChild>
@@ -76,18 +77,6 @@ const BookingContainerSpan = styled.span`
   margin-left: 10px;
   font-size: 16px;
   font-weight: 400;
-`;
-
-const BookingBtn = styled.span`
-  display: inline-block;
-  width: 100%;
-  height: 50px;
-  background-color: ${props => props.theme.style.symbol};
-  border-radius: 10px;
-  color: white;
-  text-align: center;
-  line-height: 50px;
-  cursor: pointer;
 `;
 
 const BookingBill = styled.div`

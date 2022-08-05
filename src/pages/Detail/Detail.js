@@ -5,7 +5,6 @@ import DetailTop from './components/DetailTop';
 import DetailPhoto from './components/DetailPhoto';
 import DetailMainLeft from './components/DetailMainLeft';
 import DetailMainRight from './components/DetailMainRight';
-
 import DetailMap from './components/DetailMap';
 import DetailNotice from './components/DetailNotice';
 import ModalWindow from '../../components/Modal/Modal';
@@ -23,6 +22,7 @@ const Detail = () => {
   }, []);
 
   const {
+    id,
     name,
     address,
     detail_address,
@@ -67,6 +67,7 @@ const Detail = () => {
             <DetailMainRight
               price={price}
               maximum_occupancy={maximum_occupancy}
+              id={id}
             />
           </DetailMain>
 
