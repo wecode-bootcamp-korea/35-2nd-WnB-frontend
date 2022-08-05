@@ -1,93 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import CardSlide from './CardSlide';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
-const ItemCard = () => {
-  const [roomData, setRoomData] = useState([]);
+const ItemCard = ({ roomData }) => {
+  const location = useLocation();
+  let isCheckPath = location.pathname === '/';
+  const { images, name, address, description, price, bed } = roomData;
 
-  useEffect(() => {
-    fetch('/data/RoomData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => setRoomData(data));
-  }, []);
-
+  const starRank = (Math.random() * 3 + 2).toFixed(2);
+  const reviewCount = roomData.review.length ? starRank : 'NEW';
   return (
-    <Card>
-      {roomData.map(
-        ({
-          host_id,
-          name,
-          address,
-          description,
-          bed,
-          price,
-          images,
-          review,
-        }) => {
-          const starRank = (Math.random() * 5).toFixed(2);
-          const reviewCount = review.length ? starRank : 'NEW';
-
-          return (
-            <CardWrap key={host_id}>
-              <CardImage>
-                <CardSlide images={images} />
-              </CardImage>
-              <div className="CardText">
-                <LinkToDetail to="/login">
-                  <CardTitle>
-                    <TxtTitle>{name}</TxtTitle>
-                    <CardGrade>
-                      <i className="fa-solid fa-star" />
-                      &nbsp;{reviewCount}
-                    </CardGrade>
-                  </CardTitle>
-                  <Descrition>{address}</Descrition>
-                  <Descrition>{description}</Descrition>
-                  <Descrition>침대 {bed}개</Descrition>
-                  <CardPrice>
-                    <DayPrice>￦{price.toLocaleString()} /박</DayPrice>
-                    <TotalPrice>총액 ￦120,150</TotalPrice>
-                  </CardPrice>
-                </LinkToDetail>
-              </div>
-            </CardWrap>
-          );
-        }
-      )}
-    </Card>
+    <div path={isCheckPath}>
+      <CardImage>
+        <CardSlide images={images} />
+      </CardImage>
+      <div className="CardText">
+        <LinkToDetail to="/detail">
+          <CardTitle>
+            <TxtTitle>{name}</TxtTitle>
+            <CardGrade>
+              <i className="fa-solid fa-star" />
+              &nbsp;{reviewCount}
+            </CardGrade>
+          </CardTitle>
+          <Address>{address}</Address>
+          <Descrition>{description}</Descrition>
+          <BedCount>침대 {bed}개</BedCount>
+          <CardPrice>
+            <DayPrice>￦{price.toLocaleString()} /박</DayPrice>
+            <TotalPrice>총액 ￦120,150</TotalPrice>
+          </CardPrice>
+        </LinkToDetail>
+      </div>
+    </div>
   );
 };
 
-const Card = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px 40px;
-  margin: 16px auto 40px;
-  padding: 0 80px;
-  @media (min-width: 550px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  @media (min-width: 950px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  @media (min-width: 1128px) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-`;
+export default ItemCard;
 
 const LinkToDetail = styled(Link)`
   text-decoration: none;
   line-height: 1.4;
-`;
-
-const CardWrap = styled.div`
-  display: inline-block;
 `;
 
 const CardImage = styled.div`
@@ -96,6 +50,12 @@ const CardImage = styled.div`
   .swiper {
     height: 22vw;
     border-radius: 12px;
+    @media (max-width: 950px) {
+      height: 40vw;
+    }
+    @media (max-width: 550px) {
+      height: 60vw;
+    }
 
     &:hover .swiper-button-prev,
     &:hover .swiper-button-next {
@@ -203,12 +163,26 @@ const CardGrade = styled.span`
   }
 `;
 
-const Descrition = styled.p`
+const Address = styled.p`
   padding-right: 20%;
   color: #717171;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+`;
+
+const Descrition = styled.p`
+  display: ${props => (props.path ? 'block' : 'none')};
+  padding-right: 20%;
+  color: #717171;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
+
+const BedCount = styled.p`
+  display: ${props => (props.path ? 'none' : 'block')};
+  color: #717171;
 `;
 
 const CardPrice = styled.p`
@@ -237,5 +211,3 @@ const TotalPrice = styled.span`
     border-radius: 50%;
   }
 `;
-
-export default ItemCard;
