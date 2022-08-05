@@ -8,9 +8,14 @@ const DetailMap = ({ lat, lng, address, detail_address }) => {
     lng: Number(lng),
   };
 
+  const MapStyle = {
+    width: '100%',
+    height: '500px',
+  };
+
   return (
     <DetailMaps>
-      <MyComponent center={center} />
+      <MyComponent center={center} MapStyle={MapStyle} zoom={20} />
 
       <p>
         {detail_address}, {address}

@@ -1,0 +1,153 @@
+[
+  1,
+  {
+    "id": 1,
+    "name": "스위트 킴도",
+    "description": "바베큐(숯,그릴제공) 노래방 무료 기본조미료 제공,얼음정수기",
+    "Price": 458510,
+    "center": { "lat": 37.861573, "lng": 126.8982697 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 2,
+    "name": "뷰맛집 부기 펜션",
+    "description": "부기네집은 자연 친화적이고 자유로운 일상을 추구하는 소박한 자연 마을에 위치하고 있습니다.",
+    "Price": 200000,
+    "center": { "lat": 37.8940921, "lng": 126.924448 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 3,
+    "name": "원이크힐링스테이",
+    "description": "아늑한 느낌이 살아있는 이 곳은 자연과 사람이 공존하는 힐링의 장소로 아이가 행복해지고 몸과 마음이 건강하게 자라길 바라는 엄마 , 아빠의 마음으로 지은 집입니다.",
+    "Price": 430000,
+    "center": { "lat": 37.9414561, "lng": 127.0558119 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 4,
+    "name": "백수의 정원",
+    "description": "힐링할 수 있는 공간이며, 가족들끼리 모여 즐거운 휴식을 즐길 수 있는 도심지내에 위치한 힐링장소 입니다.",
+    "Price": 178000,
+    "center": { "lat": 37.9552973, "lng": 126.9246197 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 5,
+    "name": "선샤인으녕",
+    "description": "넓은 창문을 통해 놀라운 전망을 감상하며 발을 딛을 수 있는 온수 욕조가 우리의 중요한 매력 포인트입니다.",
+    "Price": 123700,
+    "center": { "lat": 37.7544977, "lng": 126.688714 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 6,
+    "name": "타운밍하우스",
+    "description": "마을 근처에 위치해 볼거리,즐길거리,문화공간이 많으며 친구,가족이 편안하게 쉬며,머물기에 적합한 넓고 쾌적한 넓은 숙소입니다.",
+    "Price": 124000,
+    "center": { "lat": 37.711529, "lng": 126.6933489 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 7,
+    "name": "포레 감성 어콰타운",
+    "description": "경인인천지역 최고의 시설을 자랑합니다.",
+    "Price": 320000,
+    "center": { "lat": 37.6773671, "lng": 126.7914963 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 8,
+    "name": "예빈 느림채",
+    "description": "한국의 전통 주택인 이 한옥은 한옥마을의 화려한 전망을 자랑하는 고급스러운 분위기를 자랑하는 희귀한 보석이라고 자랑스럽게 주장할 수 있습니다.",
+    "Price": 621000,
+    "center": { "lat": 37.7754638, "lng": 126.904664 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 9,
+    "name": "슬로우 예빈라이프",
+    "description": "생일파티를 할 수 있는 최신 노래방 시설 및 영화관을 갖춘 파티룸 같은 곳입니다. 벽난-로가 분위기를 한껏 업시켜드립니다. 주방 및 식당공간이 따로 있습니다. 옥상에서 수영을 하면서 전기그릴로 BBQ를 할 수 있습니다. 아이들이 잘 노는지 관찰하면서 말이죠. 하지만 이모든것이 객실요금에 포함되지 않았습니다. 실내수영장 온수이용시 약간의 별도의 요금을 받습니다. 옥상 수영장이용시 별도(실외이용시 실내수영장포함가격)입니다. 저희는 숯을 사용하지 않으며 전기그릴을 준비했습니다. 별도의 요금이 책정되어 있으니 유의해주시기 바랍니다. 도착후 현금결제 가능합니다.",
+    "Price": 164000,
+    "center": { "lat": 37.8139203, "lng": 126.7345905 }
+  },
+  {
+    "id": 10,
+    "name": "승연의 잃어버린 아크",
+    "description": "4계절 따뜻하고 아늑한 승연 아크에서 사랑하는 이들과 함께 보내세요:) 경기도에 위치해 있는 승연 아크 스테이",
+    "Price": 167000,
+    "center": { "lat": 37.6013462, "lng": 126.7858315 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 11,
+    "name": "으녕뜨는 집",
+    "description": "산으로 둘러싸인 조그만 시골마을에 위치한 한 팀만을 위한 스테이입니다. 으녕뜨는 집에서 경험할 수 있는 시골생활 속 충만함과 여유는 완전한 휴식 혹은 새로운 영감을 가져옵니다.",
+    "Price": 82000,
+    "center": { "lat": 37.5802968, "lng": 127.6815605 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 12,
+    "name": "까미네 집",
+    "description": "까미네 집은 나무집, Roof, Forest로 이루어져있으며 나무집은 입구에 위치한 독립된 공간입니다.",
+    "Price": 160000,
+    "center": { "lat": 37.6070921, "lng": 127.6700592 }
+  },
+  {
+    "id": 13,
+    "name": "일몰이 아름다운 밍빌라",
+    "description": "일몰이 아름다운 밍빌라 입니다. 2021년 오픈한 쾌적하고 깨끗한 고층 건물에서 낮에는 따뜻한 채광과 밤에는 환상적인 야경을 느낄 수 있는 하루를 즐겨보세요.",
+    "Price": 35000,
+    "center": { "lat": 37.6948235, "lng": 127.488184 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 14,
+    "name": "예빈 힐링부기하우스",
+    "description": "[자가격리가 불가능한 숙소입니다]",
+    "Price": 24000,
+    "center": { "lat": 37.234702, "lng": 126.5345192 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 15,
+    "name": "단풍승연스토리",
+    "description": "해당객실은 낭만적인 포레뷰 야경을 즐길 수 있는 단풍승연스토리입니다.",
+    "Price": 71000,
+    "center": { "lat": 37.2547215, "lng": 126.5168381 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 16,
+    "name": "원익의 pm 라이프",
+    "description": "100여평의 대지에 목조주택과 마당 등이 있습니다.",
+    "Price": 129000,
+    "center": { "lat": 37.2746675, "lng": 126.4528942 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 17,
+    "name": "앵그리도연의 hair나올 수 없는 하우스",
+    "description": "22년전에 지어진 작업실겸 앵그리도연의 집입니다. 그동안 생활하며 즐긴 hair하우스의 갤러리겸 주거공간을 이제는 다른분들에게도 여유를 갖고 경험해 드리고 싶었습니다.",
+    "Price": 198000,
+    "center": { "lat": 37.4251161, "lng": 126.4279175 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 18,
+    "name": "시티뷰 믽하우스",
+    "description": "독채 건물로 하루 한 팀 머뭅니다.",
+    "Price": 284000,
+    "center": { "lat": 37.4259341, "lng": 126.4206219 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  },
+  {
+    "id": 19,
+    "name": "민지의 위코드",
+    "description": "[ Open Sale & Open Event] Minji’s WECODE",
+    "Price": 71000,
+    "center": { "lat": 37.4504001, "lng": 126.3709259 },
+    "imgUrl": "https://img.freepik.com/premium-photo/3d-rendering-luxury-modern-building-village-night_105762-1209.jpg?w=900"
+  }
+]
