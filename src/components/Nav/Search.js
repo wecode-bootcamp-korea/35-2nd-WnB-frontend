@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 import Location from './modal/Location';
@@ -21,6 +22,7 @@ const Search = ({
   const [locationModalIsOpen, setLocationModalIsOpen] = useState(false);
   const [guestModalIsOpen, setGuestModalIsOpen] = useState(false);
   const [currentId, setCurrentId] = useState(0);
+  const navigate = useNavigate();
   // const modalRef = useRef();
 
   const clickHandler = id => {
@@ -39,35 +41,39 @@ const Search = ({
     }
   };
 
-  // 추후에 서버와 통신을 할 때 사용할 함수들입니다. sider bot 때문에 놔두었습니다.
-  // const leftPad = value => {
-  //   if (value >= 10) {
-  //     return value;
-  //   }
+  const leftPad = value => {
+    if (value >= 10) {
+      return value;
+    }
 
-  //   return `0${value}`;
-  // };
+    return `0${value}`;
+  };
 
-  // const toStringByFormatting = (date, delimiter) => {
-  //   const year = date.getFullYear();
-  //   const month = leftPad(date.getMonth() + 1);
-  //   const day = leftPad(date.getDate());
+  const toStringByFormatting = (date, delimiter) => {
+    const year = date.getFullYear();
+    const month = leftPad(date.getMonth() + 1);
+    const day = leftPad(date.getDate());
 
-  //   return [year, month, day].join(delimiter);
-  // };
+    return [year, month, day].join(delimiter);
+  };
 
-  // const toSearchUserInfo = e => {
-  //   e.stopPropagation();
+  const toSearchUserInfo = e => {
+    e.stopPropagation();
 
-  //   const startDay = toStringByFormatting(startDate, '-');
-  //   const endDay = toStringByFormatting(endDate, '-');
-  //   const userInfo = {
-  //     location: location,
-  //     checkIn: startDay,
-  //     checkOut: endDay,
-  //     guest: guest,
-  //   };
-  // };
+    const startDay = startDate
+      ? `&sort=${toStringByFormatting(startDate, '-')}`
+      : '';
+    const endDay = endDate ? `&sort=${toStringByFormatting(endDate, '-')}` : '';
+    const selectLocation = location ? `&sort=${location}` : '';
+    const totalGuest = guest ? `&sort=${guest}` : '';
+
+    navigate(`/rooms?${startDay}${endDay}${selectLocation}${totalGuest}`);
+    setDateModalIsOpen(false);
+    setLocationModalIsOpen(false);
+    setGuestModalIsOpen(false);
+    setCurrentId(0);
+    setToggleNavbar(true);
+  };
 
   const ModalComponent = {
     1: (
@@ -147,7 +153,7 @@ const Search = ({
           <SearchBarSpan>
             {guest !== 0 ? `성인 ${guest}명` : '게스트 추가'}
           </SearchBarSpan>
-          <IconContainer>
+          <IconContainer onClick={toSearchUserInfo}>
             <i class="bx bx-search" />
           </IconContainer>
         </WrapperGuestContainer>
@@ -229,10 +235,11 @@ const IconContainer = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ff385c;
+  background-color: #7a0bc0;
   color: white;
   font-size: 20px;
   cursor: pointer;
+  z-index: 106;
 `;
 
 const ModalOverLay = styled.div`

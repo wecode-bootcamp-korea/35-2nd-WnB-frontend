@@ -40,9 +40,9 @@ const Modal = styled.div`
 
 const ModalChecked = styled(Modal)`
   display: flex;
-  width: fit-content;
-  height: auto;
   align-items: flex-start;
+  width: 100%;
+  height: auto;
   top: 260px;
   left: 410px;
   padding: 20px;

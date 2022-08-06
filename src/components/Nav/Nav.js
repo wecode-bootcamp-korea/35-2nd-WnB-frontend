@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import BeforeSearch from './BeforeSearch';
 import OnClickSearch from './OnClickSearch';
 
@@ -9,7 +9,17 @@ const Nav = () => {
   const [guest, setGuest] = useState(0);
   const [toggleNavbar, setToggleNavbar] = useState(true);
   const [profileModal, setProfileModal] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isToken, setIsToken] = useState(false);
   const modalRef = useRef();
+
+  useEffect(() => {
+    if (localStorage.getItem('Token')) {
+      setIsToken(true);
+    } else {
+      setIsToken(false);
+    }
+  }, [isToken]);
 
   const onChange = dates => {
     const [start, end] = dates;
@@ -33,6 +43,11 @@ const Nav = () => {
     setProfileModal(prev => !prev);
   };
 
+  const switchModal = () => {
+    setProfileModal(prev => !prev);
+    setModalIsOpen(prev => !prev);
+  };
+
   return (
     <div>
       <BeforeSearch
@@ -49,6 +64,11 @@ const Nav = () => {
         profileModal={profileModal}
         setProfileModal={setProfileModal}
         clickUserInfo={clickUserInfo}
+        isToken={isToken}
+        setIsToken={setIsToken}
+        modalIsOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
+        switchModal={switchModal}
       />
       <OnClickSearch
         toggleNav={toggleNav}
@@ -66,6 +86,11 @@ const Nav = () => {
         profileModal={profileModal}
         setProfileModal={setProfileModal}
         clickUserInfo={clickUserInfo}
+        isToken={isToken}
+        setIsToken={setIsToken}
+        modalIsOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
+        switchModal={switchModal}
       />
     </div>
   );

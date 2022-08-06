@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ProfileContainer = ({ profileModal, setProfileModal }) => {
+const ProfileContainer = ({
+  profileModal,
+  setProfileModal,
+  modalIsOpen,
+  setModalIsOpen,
+  switchModal,
+  isToken,
+  setIsToken,
+}) => {
   return (
-    <ModalOverlay onClick={() => setProfileModal(false)}>
+    <>
+      <ModalOverlayInUserInfo onClick={() => setProfileModal(false)} />
       <ModalProfile onClick={e => e.stopPropagation()}>
         <TopContainer>
-          <UserInfoMenu>
+          <UserInfoMenu onClick={switchModal}>
             <InfoMenuLogin>로그인</InfoMenuLogin>
           </UserInfoMenu>
           <UserInfoMenu>
@@ -26,16 +35,16 @@ const ProfileContainer = ({ profileModal, setProfileModal }) => {
           </UserInfoMenu>
         </BottomContainer>
       </ModalProfile>
-    </ModalOverlay>
+    </>
   );
 };
 
 export default ProfileContainer;
 
-const ModalOverlay = styled.div`
-  width: 100%;
+const ModalOverlayInUserInfo = styled.div`
+  width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 `;
