@@ -8,12 +8,12 @@ const KakaoLogin = () => {
   const KAKAO_CODE = location.search.split('=')[1];
 
   const go = () => {
-    fetch(`http://10.58.1.139:8000/users/kakao/oauth`, {
+    fetch(`http://10.58.5.43:8000/users/kakao/oauth`, {
       method: 'GET',
       headers: { Authorization: localStorage.getItem('key') },
     })
       .then(res => res.json())
-      .then(data => console.log(data)); // 현재 백엔드와 테스트 통신 확인한 콘솔 - 백에서 정보 받으면 지우기
+      .then(data => localStorage.setItem('Token', data.token)); // 현재 백엔드와 테스트 통신 확인한 콘솔 - 백에서 정보 받으면 지우기
     // .then(data => {
     //   if (백엔드에서 전달받은 메세지 넣기) {
     //      조건은 삼항연산자 넣어서 조건 걸기?

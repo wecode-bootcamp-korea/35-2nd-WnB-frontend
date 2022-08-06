@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <>
-      <button onClick={() => setModalOpen(true)}>test</button>
+      <Test onClick={() => setModalOpen(true)}>test</Test>
       {isModalOpen && (
         <LoginWapper>
           <LoginModal ref={modal}>
@@ -47,6 +47,11 @@ const Login = () => {
     </>
   );
 };
+
+const Test = styled.button`
+  position: absolute;
+  z-index: 999;
+`;
 
 const LoginWapper = styled.div`
   position: fixed;

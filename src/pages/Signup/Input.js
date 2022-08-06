@@ -5,32 +5,30 @@ import styled from 'styled-components';
 const Input = () => {
   const navigate = useNavigate();
   const userData = () => {
-    fetch({
-      method: 'POST',
+    fetch(`http://10.58.5.43:8000/users/additional-info`, {
+      method: 'PATCH',
+      headers: { Authorization: localStorage.getItem('Token') },
       body: JSON.stringify({
-        FirstName: '',
-        LastName: '',
-        PhoneNumber: '',
-        BirthDay: '',
+        last_name: LastName,
+        first_name: FirstName,
+        phone_number: PhoneNumber,
+        birth_day: BirthDay,
       }),
     })
-      .then(res => res.JSON())
-      .then(result => {
-        if (result.message === 'SUCCESS') {
-          alert('가입을 환영합니다');
-          navigate('/main');
-        }
-      });
+      .then(response => response.json())
+      .then(data => console.log(data));
   };
 
   const [inputValue, setInputValue] = useState({
-    FirstName: '',
     LastName: '',
+    FirstName: '',
     PhoneNumber: '',
     BirthDay: '',
   });
 
-  const { FirstName, LastName, PhoneNumber, BirthDay } = inputValue;
+  console.log(inputValue);
+
+  const { LastName, FirstName, PhoneNumber, BirthDay } = inputValue;
 
   const handleInput = e => {
     const { name, value } = e.target;
@@ -44,8 +42,8 @@ const Input = () => {
   const regExpPhonNumber = /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/;
 
   const isValidInput =
-    regExp.test(FirstName) &&
     regExp.test(LastName) &&
+    regExp.test(FirstName) &&
     regExpPhonNumber.test(PhoneNumber) &&
     BirthDay.length !== 0;
 
@@ -109,20 +107,20 @@ export default Input;
 const SignUpData = [
   {
     id: 1,
-    name: 'FirstName',
-    type: 'text',
-    placeholder: 'First Name',
-    valid: 'FirstName을 입력해주세요',
-    autoFocus: true,
-    autocomplete: 'off',
-  },
-  {
-    id: 2,
     name: 'LastName',
     type: 'text',
     placeholder: 'Last Name',
     valid: 'LastName을 입력해주세요',
     autoFocus: false,
+    autocomplete: 'off',
+  },
+  {
+    id: 2,
+    name: 'FirstName',
+    type: 'text',
+    placeholder: 'First Name',
+    valid: 'FirstName을 입력해주세요',
+    autoFocus: true,
     autocomplete: 'off',
   },
   {

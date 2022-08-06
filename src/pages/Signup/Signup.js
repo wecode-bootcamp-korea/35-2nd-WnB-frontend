@@ -25,7 +25,7 @@ const Signup = () => {
 
   return (
     <>
-      <button onClick={() => setModalOpen(true)}>test</button>
+      <Test onClick={() => setModalOpen(true)}>test</Test>
       {isModalOpen && (
         <LoginWapper>
           <SignupModal ref={modal}>
@@ -41,6 +41,12 @@ const Signup = () => {
     </>
   );
 };
+
+const Test = styled.button`
+  position: absolute;
+  margin-top: 200px;
+  z-index: 999;
+`;
 
 const LoginWapper = styled.div`
   position: fixed;
