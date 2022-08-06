@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProfileContainer from './modal/ProfileContainer';
+import ProfileLoginContainer from './modal/ProfileLoginContainer';
 import { fadeIn, shadow } from '../../styles/animation';
+import { useLocation } from 'react-router-dom';
 
 const BeforeSearch = ({
   startDate,
@@ -13,10 +15,45 @@ const BeforeSearch = ({
   profileModal,
   setProfileModal,
   clickUserInfo,
+  isToken,
+  setIsToken,
+  modalIsOpen,
+  setModalIsOpen,
+  switchModal,
 }) => {
+  let uselocation = useLocation();
+  let is_detail = uselocation.pathname;
+
+  const swtichProfileModal = {
+    1: (
+      <ProfileContainer
+        profileModal={profileModal}
+        setProfileModal={setProfileModal}
+        modalIsOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
+        switchModal={switchModal}
+        isToken={isToken}
+        setIsToken={setIsToken}
+      />
+    ),
+    2: (
+      <ProfileLoginContainer
+        profileModal={profileModal}
+        setProfileModal={setProfileModal}
+        isToken={isToken}
+        setIsToken={setIsToken}
+      />
+    ),
+  };
+
   return (
-    <SectionBefore className={toggleNavbar ? 'toggle_open' : null}>
-      <OnClickSearchSection>
+    <SectionBefore
+      className={toggleNavbar ? 'toggle_open' : null}
+      detail={is_detail}
+    >
+      <OnClickSearchSection
+        className={is_detail === '/detail' ? 'detail_width' : null}
+      >
         <TopNavSection>
           <LogoContainer>
             <Logo src="../images/airbnbLogo.png" alt="logo" />
@@ -65,12 +102,8 @@ const BeforeSearch = ({
                   <i class="bx bxs-user-circle" />
                 </UseerInfoIcon>
               </UserInfoContainer>
-              {profileModal ? (
-                <ProfileContainer
-                  profileModal={profileModal}
-                  setProfileModal={setProfileModal}
-                />
-              ) : null}
+              {profileModal &&
+                (isToken ? swtichProfileModal['2'] : swtichProfileModal['1'])}
             </InfoPositionSet>
           </UserSection>
         </TopNavSection>
@@ -82,13 +115,15 @@ const BeforeSearch = ({
 export default BeforeSearch;
 
 const SectionBefore = styled.div`
-  position: fixed;
+  position: ${props => (props.detail === '/detail' ? 'relative' : 'fixed')};
   top: 0;
   left: 0;
   width: 100%;
+  height: 80px;
   opacity: 0;
   z-index: 102;
   background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
   &.toggle_open {
     opacity: 1;
@@ -104,7 +139,11 @@ const OnClickSearchSection = styled.div`
   max-width: 1760px;
   margin: 0 auto;
   padding: 0 80px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &.detail_width {
+    padding: 0;
+    max-width: 1170px;
+  }
 `;
 
 const TopNavSection = styled.div`
@@ -168,7 +207,7 @@ const SearchCircle = styled.div`
   right: 0px;
   width: 32px;
   height: 32px;
-  background-color: #ff385c;
+  background-color: #7a0bc0;
   border-radius: 50%;
   font-size: 16px;
   color: white;

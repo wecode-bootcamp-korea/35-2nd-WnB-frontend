@@ -3,6 +3,8 @@ import Search from './Search';
 import styled from 'styled-components';
 import { fadeIn, shadow } from '../../styles/animation';
 import ProfileContainer from './modal/ProfileContainer';
+import ProfileLoginContainer from './modal/ProfileLoginContainer';
+import { useLocation } from 'react-router-dom';
 
 const OnClickSearch = ({
   startDate,
@@ -20,10 +22,42 @@ const OnClickSearch = ({
   profileModal,
   setProfileModal,
   clickUserInfo,
+  isToken,
+  setIsToken,
+  modalIsOpen,
+  setModalIsOpen,
+  switchModal,
 }) => {
+  let uselocation = useLocation();
+  let is_detail = uselocation.pathname;
+
+  const swtichProfileModal = {
+    1: (
+      <ProfileContainer
+        profileModal={profileModal}
+        setProfileModal={setProfileModal}
+        modalIsOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
+        switchModal={switchModal}
+        isToken={isToken}
+        setIsToken={setIsToken}
+      />
+    ),
+    2: (
+      <ProfileLoginContainer
+        profileModal={profileModal}
+        setProfileModal={setProfileModal}
+        isToken={isToken}
+        setIsToken={setIsToken}
+      />
+    ),
+  };
+
   return (
     <Section className={toggleNavbar ? null : 'toggle_open zIndex'}>
-      <OnClickSearchSection>
+      <OnClickSearchSection
+        className={is_detail === '/detail' ? 'detail_width' : null}
+      >
         <TopNavSection>
           <LogoContainer>
             <Logo src="../images/airbnbLogo.png" alt="logo" />
@@ -47,12 +81,8 @@ const OnClickSearch = ({
                   <i class="bx bxs-user-circle" />
                 </UseerInfoIcon>
               </UserInfoContainer>
-              {profileModal ? (
-                <ProfileContainer
-                  profileModal={profileModal}
-                  setProfileModal={setProfileModal}
-                />
-              ) : null}
+              {profileModal &&
+                (isToken ? swtichProfileModal['2'] : swtichProfileModal['1'])}
             </InfoPositionSet>
           </UserSection>
         </TopNavSection>
@@ -86,6 +116,7 @@ const Section = styled.div`
   width: 100%;
   opacity: 0;
   background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
   &.zIndex {
     z-index: 102;
@@ -105,7 +136,11 @@ const OnClickSearchSection = styled.div`
   max-width: 1760px;
   margin: 0 auto;
   padding: 0 80px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &.detail_width {
+    padding: 0px;
+    max-width: 1170px;
+  }
 `;
 
 const TopNavSection = styled.div`
