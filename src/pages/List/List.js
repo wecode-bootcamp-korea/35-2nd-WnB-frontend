@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ItemCard from '../../components/Card/ItemCard';
+import FilterButton from './FilterButton';
 
 const List = () => {
   const [roomData, setRoomData] = useState([]);
@@ -18,12 +19,7 @@ const List = () => {
         <ListTop>
           <TopContent>
             <span>숙소 {roomCount}개</span>
-            <FilterBtn>
-              <span>
-                <img src="/images/filter.png" alt="filter" />
-                필터
-              </span>
-            </FilterBtn>
+            <FilterButton />
           </TopContent>
         </ListTop>
         <ListMid>
@@ -61,28 +57,6 @@ const TopContent = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-`;
-
-const FilterBtn = styled.button`
-  display: inline-flex;
-  background-color: #fff;
-  padding: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-
-  span {
-    display: inline-flex;
-    align-items: center;
-    padding: 0 16px;
-    font-weight: 600;
-    font-family: Pretendard Variable;
-
-    img {
-      width: 16px;
-      margin-right: 4px;
-    }
-  }
 `;
 
 const ListMid = styled.div`
