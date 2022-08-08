@@ -2,18 +2,37 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import DetailMainRightBooking from './DetailMainRightBooking';
 
-const DetailMainRight = ({ price, maximum_occupancy, id }) => {
-  let [days, setDays] = useState(1);
-  let [totalPee, setTotalPee] = useState(1);
-  let [guests, setGuests] = useState(1);
+const DetailMainRight = ({
+  id,
+  price,
+  maximum_occupancy,
+  onChange,
+  startDate,
+  endDate,
+  detailNavBtn,
+  days,
+  setDays,
+  totalPee,
+  setTotalPee,
+  guests,
+  setGuests,
+  goToBooking,
+  newFormatDate,
+  reservations,
+}) => {
   let [isToggle, setIsToggle] = useState(false);
+
   useEffect(() => {
     setTotalPee(price * days);
   }, [days, price]);
 
+  useEffect(() => {
+    setDays(1);
+  }, [startDate]);
+
   return (
     <MainRightWraps>
-      <BookingContainer>
+      <BookingContainer detailNavBtn={detailNavBtn}>
         <div>
           <BookingContainerH1>
             {price.toLocaleString('ko-KR')} 원
@@ -26,15 +45,26 @@ const DetailMainRight = ({ price, maximum_occupancy, id }) => {
           guests={guests}
           maximum_occupancy={maximum_occupancy}
           setGuests={setGuests}
-          id={id}
-          totalPee={totalPee}
+          onChange={onChange}
+          startDate={startDate}
+          endDate={endDate}
+          setDays={setDays}
+          newFormatDate={newFormatDate}
+          days={days}
+          reservations={reservations}
         />
-
+        <BookingBtn
+          onClick={() => {
+            goToBooking();
+          }}
+        >
+          예약하기
+        </BookingBtn>
         <BookingBill>
           <p>예약 확정 전에는 요금이 청구되지 않습니다.</p>
           <BookingBillChild>
             <span>
-              {price.toLocaleString('ko-KR')} 원 x {days}박
+              {price.toLocaleString('ko-KR')} 원 x {endDate ? days : 1}박
             </span>
             <span>{(price * days).toLocaleString('ko-KR')} 원</span>
           </BookingBillChild>
@@ -58,13 +88,14 @@ const MainRightWraps = styled.div`
 
 const BookingContainer = styled.div`
   position: sticky;
-  top: 50px;
+  top: 150px;
   width: 100%;
   padding: 25px;
   border-radius: 15px;
   border: 1px solid #eee;
   box-shadow: 3px 3px 3px #eee;
   transition: 0.5s;
+  display: ${props => (props.detailNavBtn ? 'none' : 'block')};
 `;
 
 const BookingContainerH1 = styled.h1`
@@ -77,6 +108,18 @@ const BookingContainerSpan = styled.span`
   margin-left: 10px;
   font-size: 16px;
   font-weight: 400;
+`;
+
+const BookingBtn = styled.span`
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  background-color: ${props => props.theme.style.symbol};
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
 `;
 
 const BookingBill = styled.div`

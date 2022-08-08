@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Calender from './Calender';
 
 const DetailMainLeft = ({
   host,
@@ -11,6 +12,10 @@ const DetailMainLeft = ({
   room_type,
   description,
   facilities,
+  onChange,
+  startDate,
+  endDate,
+  reservations,
 }) => {
   let { first_name, last_name, profile_img } = host;
 
@@ -97,7 +102,12 @@ const DetailMainLeft = ({
         </Option>
       </HostBox>
       <HostBox>
-        <Date>달력</Date>
+        <Calender
+          onChange={onChange}
+          startDate={startDate}
+          endDate={endDate}
+          reservations={reservations}
+        />
       </HostBox>
     </MainLeftContainer>
   );
@@ -276,12 +286,6 @@ const OptionChild = styled.div`
     font-size: 16px;
     vertical-align: middle;
   }
-`;
-
-const Date = styled.div`
-  background-color: coral;
-  width: 100%;
-  height: 300px;
 `;
 
 export default DetailMainLeft;

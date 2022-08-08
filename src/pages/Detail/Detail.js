@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
+import { API } from '../../components/Config/Config';
 import styled from 'styled-components';
 import DetailTop from './components/DetailTop';
 import DetailPhoto from './components/DetailPhoto';
@@ -8,12 +8,64 @@ import DetailMainRight from './components/DetailMainRight';
 import DetailMap from './components/DetailMap';
 import DetailNotice from './components/DetailNotice';
 import ModalWindow from '../../components/Modal/Modal';
+import _ from 'lodash';
 
 const Detail = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [item, setItem] = useState([]);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [detailNav, setdetailNav] = useState(false);
+  const [detailNavBtn, setDetailNavBtn] = useState(false);
+  let [days, setDays] = useState(1);
+  let [totalPee, setTotalPee] = useState(1);
+  let [guests, setGuests] = useState(1);
 
-  // const params = useParams();
+  const newFormatDate = date => {
+    let year = date.getFullYear();
+    let month = ('0' + (1 + date.getMonth())).slice(-2);
+    let day = ('0' + date.getDate()).slice(-2);
+
+    return year + '-' + month + '-' + day;
+  };
+
+  const goToBooking = () => {
+    endDate
+      ? fetch(`${API.booking}`, {
+          method: 'POST',
+          // headers: {
+          //   Authorization: localStorage.getItem('jwt'),
+
+          // },
+          body: JSON.stringify({
+            room: id,
+            price: totalPee,
+            check_in: newFormatDate(startDate),
+            check_out: newFormatDate(endDate),
+            people: guests,
+          }),
+        })
+          .then(response => response.json())
+          .then(result => {
+            result.MESSAGE === 'SUCCESS' && alert('예약완료');
+          })
+      : alert('예약일을 선택해주세요');
+  };
+
+  window.addEventListener(
+    'scroll',
+    _.throttle(() => {
+      window.scrollY > 150 ? setdetailNav(true) : setdetailNav(false);
+      window.scrollY > 1600 ? setDetailNavBtn(true) : setDetailNavBtn(false);
+    })
+  );
+
+  const onChange = dates => {
+    const [start, end] = dates;
+
+    setStartDate(start);
+    setEndDate(end);
+  };
 
   useEffect(() => {
     fetch(`/data/detailMockData2.json`)
@@ -39,6 +91,7 @@ const Detail = () => {
     room_type,
     detail_images,
     facilities,
+    reservations,
   } = item;
 
   return (
@@ -63,11 +116,29 @@ const Detail = () => {
               description={description}
               room_type={room_type.name}
               facilities={facilities}
+              onChange={onChange}
+              startDate={startDate}
+              endDate={endDate}
+              reservations={reservations}
             />
             <DetailMainRight
+              days={days}
+              setDays={setDays}
+              setTotalPee={setTotalPee}
+              setGuests={setGuests}
+              totalPee={totalPee}
+              guests={guests}
               price={price}
               maximum_occupancy={maximum_occupancy}
+              onChange={onChange}
+              startDate={startDate}
+              endDate={endDate}
               id={id}
+              detailNavBtn={detailNavBtn}
+              goToBooking={goToBooking}
+              newFormatDate={newFormatDate}
+              API={API}
+              reservations={reservations}
             />
           </DetailMain>
 
@@ -79,6 +150,19 @@ const Detail = () => {
           />
           <DetailNotice />
         </Inner>
+        <DetailNav detailNav={detailNav}>
+          <DetailNavInner>
+            <NavMenu>
+              {NAVMENUDATA &&
+                NAVMENUDATA.map((list, idx) => {
+                  return <li key={idx}>{list}</li>;
+                })}
+            </NavMenu>
+            <NavBtn detailNavBtn={detailNavBtn} onClick={goToBooking}>
+              예약하기
+            </NavBtn>
+          </DetailNavInner>
+        </DetailNav>
         <ModalWindow
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
@@ -95,7 +179,7 @@ const Detail = () => {
 const Inner = styled.div`
   width: 100%;
   max-width: 1120px;
-  margin: 0 auto;
+  margin: 100px auto 0;
 `;
 
 const DetailMain = styled.div`
@@ -115,11 +199,11 @@ const modalStyle = {
   },
 
   content: {
+    display: 'flex',
+    justifyContent: 'center',
     left: '0',
     top: '0',
     width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
     height: '100%',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
@@ -127,4 +211,57 @@ const modalStyle = {
     zIndex: 10,
   },
 };
+
+const DetailNav = styled.div`
+  display: ${props => (props.detailNav ? 'block' : 'none')};
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  z-index: ${props => (props.detailNav ? '999' : '0')};
+`;
+
+const DetailNavInner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background-color: white;
+`;
+
+const NavBtn = styled.button`
+  display: ${props => (props.detailNavBtn ? 'block' : 'none')};
+  width: 150px;
+  background-color: #7a0bc0;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+`;
+const NavMenu = styled.ul`
+  li:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin: 0 8px;
+    background-color: #e4e8eb;
+  }
+
+  li {
+    float: left;
+  }
+`;
+
 export default Detail;
+const NAVMENUDATA = ['사진', '편의시설', '위치'];

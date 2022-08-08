@@ -1,10 +1,23 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/locale';
+import { subDays, addDays } from 'date-fns';
 import styled, { createGlobalStyle } from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const Calender = ({ startDate, onChange, endDate }) => {
+const Calender = ({ startDate, onChange, endDate, reservations }) => {
+  const newReser = () => {
+    let newArr = [];
+    reservations.map(els => {
+      return newArr.push({
+        start: subDays(new Date(els.check_in), 1),
+        end: addDays(new Date(els.check_out), -1),
+      });
+    });
+    let result = [...newArr];
+    return result;
+  };
+
   return (
     <DateContainer>
       <DatePicker
@@ -17,7 +30,8 @@ const Calender = ({ startDate, onChange, endDate }) => {
         selectsRange
         monthsShown={2}
         minDate={new Date()}
-        dateFormat="yyyy/MM/dd"
+        dateFormat="yyyy-MM-dd"
+        excludeDateIntervals={newReser()}
         inline
         wrapperClassName="react-datepicker__header react-datepicker__day"
       />
