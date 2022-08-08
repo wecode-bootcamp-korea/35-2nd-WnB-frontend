@@ -7,7 +7,6 @@ const ModalWindow = props => {
   let { modalIsOpen, setModalIsOpen, contents, modalStyle } = props;
 
   const location = useLocation();
-
   let isCheckPath = location.pathname === '/detail';
 
   return (

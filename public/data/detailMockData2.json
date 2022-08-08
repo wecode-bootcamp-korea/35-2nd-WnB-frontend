@@ -12,6 +12,21 @@
     "bedroom": 3,
     "bathroom": 2,
     "bed": 1,
+    "reservations": [
+      {
+        "check_in": "2022-08-11",
+        "check_out": "2022-08-17"
+      },
+      {
+        "check_in": "2022-08-19",
+        "check_out": "2022-08-22"
+      },
+      {
+        "check_in": "2022-09-01",
+        "check_out": "2022-09-07"
+      }
+    ],
+
     "host": {
       "id": 1,
       "first_name": "Philep",
@@ -38,6 +53,7 @@
       "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
       "https://img.freepik.com/free-photo/beautiful-shot-modern-house-kitchen_181624-2943.jpg?w=1060&t=st=1659507234~exp=1659507834~hmac=e631bbb4da3d68c27a900eb938e424e7596563a0fe39e7497f56b5bf2a42ee33"
     ],
-    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"]
+    "facilities": ["무선인터넷", "세탁기", "건조기", "에어컨", "아침식사"],
+    "booked": ["2022-01-01", "2022-01-02", "2022-01-03", "2022-01-04"]
   }
 ]
