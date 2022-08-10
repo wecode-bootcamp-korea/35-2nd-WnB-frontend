@@ -83,7 +83,7 @@ const BeforeSearch = ({
                   {guest !== 0 ? `성인 ${guest}명` : '게스트 추가'}
                 </OnlineMenu>
                 <SearchCircle>
-                  <i class="bx bx-search" />
+                  <i className="bx bx-search" />
                 </SearchCircle>
               </SmallSearchMenuContainer>
             </SmallSearchBox>
@@ -91,15 +91,15 @@ const BeforeSearch = ({
           <UserSection>
             <UserTextContainer>호스트되기</UserTextContainer>
             <UserIconContainer>
-              <i class="bx bx-world" />
+              <i className="bx bx-world" />
             </UserIconContainer>
             <InfoPositionSet>
               <UserInfoContainer onClick={clickUserInfo}>
                 <UserInfoMenu>
-                  <i class="bx bx-menu" />
+                  <i className="bx bx-menu" />
                 </UserInfoMenu>
                 <UseerInfoIcon>
-                  <i class="bx bxs-user-circle" />
+                  <i className="bx bxs-user-circle" />
                 </UseerInfoIcon>
               </UserInfoContainer>
               {profileModal &&
