@@ -6,6 +6,7 @@ import CardSlide from './CardSlide';
 const ItemCard = ({ roomData }) => {
   const location = useLocation();
   let isCheckPath = location.pathname === '/';
+
   const { images, name, address, description, price, bed } = roomData;
 
   const starRank = (Math.random() * 3 + 2).toFixed(2);

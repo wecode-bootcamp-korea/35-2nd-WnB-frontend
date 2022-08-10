@@ -1,0 +1,24 @@
+[
+  {
+    "reservation_number": "52403c6c-1778-11ed-937b-f45c89c3f9f1",
+    "room_name": "스위트 킴도",
+    "address": "경기도 파주시 법원읍 법원리 100-10",
+    "description": "바베큐(숯,그릴제공) 노래방 무료 기본조미료 제공,얼음정수기",
+    "price": 60075.0,
+    "latitude": "37.861573",
+    "longitude": "126.8982697",
+    "check_in": "2022-06-14",
+    "check_out": "2022-06-17",
+    "people": 2,
+    "images": [
+      "https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg?w=1060&t=st=1659506548~exp=1659507148~hmac=936121162bd79438b956d23e0c42b3acca2363c4c2f2b988ad17bcbfc1dd00b5",
+      "https://img.freepik.com/free-photo/breakfast-wooden-table-with-natural-view_53876-139869.jpg?w=1060&t=st=1659506736~exp=1659507336~hmac=ba6d395ccedb626dfed3eea377b7880d9e17c93e34c8dd1fcbf6771cf24302a4",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
+      "https://img.freepik.com/free-photo/green-interior-modern-interior-living-room-style-with-soft-sofa-green-wall-3d-rendering_41470-3902.jpg?w=1060&t=st=1659507250~exp=1659507850~hmac=87f65bcec0f7f09e68ed98311f71537bc3e30c69fa13d8a05d7791b0a8671148",
+      "https://img.freepik.com/free-photo/3d-rendering-beautiful-luxury-bedroom-suite-hotel-with-tv-shelf_105762-2077.jpg?w=1060&t=st=1659513815~exp=1659514415~hmac=4206be509279b4bbf6e2ac92e9c07e8fe392fc279ca7da4e7d30ae76fde21679",
+      "https://img.freepik.com/free-photo/green-sofa-white-living-room-with-blank-table-mockup_43614-835.jpg?w=740&t=st=1659513785~exp=1659514385~hmac=0fac576f3bafcece2de59f78cb0e6c121c31607e76aa96297f4f873c6ff44b63",
+      "https://img.freepik.com/free-photo/beautiful-interior-shot-modern-house-with-white-relaxing-walls-furniture-technology_181624-3828.jpg?w=1060&t=st=1659418892~exp=1659419492~hmac=2f8f440d0bc826eab97134cbaa344e25d708d9eee0a72614212cca836b8b2f34",
+      "https://img.freepik.com/free-photo/beautiful-shot-modern-house-kitchen_181624-2943.jpg?w=1060&t=st=1659507234~exp=1659507834~hmac=e631bbb4da3d68c27a900eb938e424e7596563a0fe39e7497f56b5bf2a42ee33"
+    ]
+  }
+]

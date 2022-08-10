@@ -70,15 +70,15 @@ const OnClickSearch = ({
           <UserSection>
             <UserTextContainer>호스트되기</UserTextContainer>
             <UserIconContainer>
-              <i class="bx bx-world" />
+              <i className="bx bx-world" />
             </UserIconContainer>
             <InfoPositionSet>
               <UserInfoContainer onClick={clickUserInfo}>
                 <UserInfoMenu>
-                  <i class="bx bx-menu" />
+                  <i className="bx bx-menu" />
                 </UserInfoMenu>
                 <UseerInfoIcon>
-                  <i class="bx bxs-user-circle" />
+                  <i className="bx bxs-user-circle" />
                 </UseerInfoIcon>
               </UserInfoContainer>
               {profileModal &&
