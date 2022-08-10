@@ -181,7 +181,7 @@ const Description = styled.p`
 `;
 
 const BedCount = styled.p`
-  display: ${props => (props.path ? 'none' : 'block')};
+  display: ${props => (props.path ? 'block' : 'none')};
   color: #717171;
 `;
 
@@ -195,6 +195,7 @@ const DayPrice = styled.span`
 `;
 
 const TotalPrice = styled.span`
+  display: ${props => (props.path ? 'inline-block' : 'none')};
   position: relative;
   color: #717171;
   padding-left: 10px;

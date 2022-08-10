@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import variables from '../../styles/variables';
 import FilterBtn from '../List/FilterButton';
 
-const MainCategory = () => {
+const MainCategory = ({ handleFilterModal }) => {
   const [scrollY, setScrollY] = useState(0);
   const isBtnActive = scrollY > 30;
   const stickyCate = () => {
@@ -17,34 +17,57 @@ const MainCategory = () => {
     };
   }, []);
 
-  const [category, setCatecory] = useState([]);
-  useEffect(() => {
-    fetch('/data/mainMockData.json')
-      .then(res => res.json())
-      .then(data => {
-        const cateList = data.map(({ category }) => category);
-        const setCateList = cateList.filter((data, idx, arr) => {
-          return arr.findIndex(item => item.name === data.name) === idx;
-        });
-        setCatecory(setCateList);
-      });
-  }, []);
+  const [currentTab, setCurrentTab] = useState(0);
+
+  const menuArr = [
+    { name: 'Tab1', content: 'Tab menu ONE' },
+    { name: 'Tab2', content: 'Tab menu TWO' },
+    { name: 'Tab3', content: 'Tab menu THREE' },
+  ];
+
+  const selectMenuHandler = index => {
+    setCurrentTab(index);
+  };
+
+  // const [category, setCatecory] = useState([]);
+  // useEffect(() => {
+  //   fetch('/data/mainMockData.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const cateList = data.map(({ category }) => category);
+  //       const setCateList = cateList.filter((data, idx, arr) => {
+  //         return arr.findIndex(item => item.name === data.name) === idx;
+  //       });
+  //       setCatecory(setCateList);
+  //     });
+  // }, []);
 
   return (
     <MainTop className={isBtnActive ? 'active' : ''}>
       <CateWrap>
         <CateItem>
-          {category.map(({ id, img_url, name }) => {
+          {/* {category.map(({ id, img_url, name }) => {
             return (
               <Cate key={id}>
                 <img src={img_url} alt={name} />
                 <span>{name}</span>
               </Cate>
             );
+          })} */}
+          {menuArr.map((ele, index) => {
+            return (
+              <Cate
+                key={index}
+                className={currentTab === index ? 'active' : ''}
+                onClick={() => selectMenuHandler(index)}
+              >
+                {ele.name}
+              </Cate>
+            );
           })}
         </CateItem>
       </CateWrap>
-      <FilterBtn />
+      <FilterBtn handleFilterModal={handleFilterModal} />
     </MainTop>
   );
 };
@@ -107,5 +130,9 @@ const Cate = styled.div`
 
   &:hover::after {
     background-color: #ddd;
+  }
+
+  &.active img {
+    filter: contrast(100%);
   }
 `;

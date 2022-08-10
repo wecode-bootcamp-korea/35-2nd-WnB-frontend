@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+// import InfiniteScroll from './InfiniteScroll';
 import ItemCard from '../../components/Card/ItemCard';
 import MainCategory from './MainCategory';
 
 const Main = () => {
   const [roomData, setRoomData] = useState([]);
+  const [isFilterModal, setIsFilterModal] = useState(false);
+  // const [scrollOptions, setScrollOptions] = useState({
+  //   childLength: 4, // 첫 렌더될 아이템의 개수
+  //   fullHeight: 0, // 총 스크롤의 크기
+  // });
 
   useEffect(() => {
-    fetch('/data/RoomData.json')
+    fetch('/data/mainMockData.json')
       .then(res => res.json())
       .then(data => setRoomData(data));
   }, []);
 
+  const handleFilterModal = () => {
+    setIsFilterModal(prev => !prev);
+  };
+
   return (
     <>
-      <MainCategory />
+      <MainCategory handleFilterModal={handleFilterModal} />
       <MainContent>
         {roomData.map(item => {
           return <ItemCard key={item.id} roomData={item} />;
