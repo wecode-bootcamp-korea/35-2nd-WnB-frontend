@@ -3,7 +3,6 @@ import LoginModal from '../Modal/LoginModal';
 import SignModal from '../Modal/SignModal';
 import BeforeSearch from './BeforeSearch';
 import OnClickSearch from './OnClickSearch';
-import SignModal from '../Modal/SignModal';
 
 const Nav = () => {
   const [startDate, setStartDate] = useState(null);
