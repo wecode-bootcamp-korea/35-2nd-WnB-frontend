@@ -94,8 +94,11 @@ const DetailMainLeft = ({
           {facilities.map((els, idx) => {
             return (
               <OptionChild key={idx}>
-                <img src={`/images/icons/${FACILDATE[els]}.png`} alt="icon" />
-                <p>{els}</p>
+                <img
+                  src={`/images/icons/${FACILDATE[els.id]}.png`}
+                  alt="icon"
+                />
+                <p>{els.name}</p>
               </OptionChild>
             );
           })}
