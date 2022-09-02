@@ -1,44 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { Checkbox, FormControl, FormGroup } from '@mui/material';
+import { FormControl } from '@mui/material';
 import { Link } from 'react-router-dom';
-import AirbnbSlider from './component/AirbnbSlider';
-import BedRoom from './component/BedRoom';
-import Bed from './component/Bed';
-import BathRoom from './component/BathRoom';
+import PriceCheck from './PriceCheck';
+import HomeType from './HomeType';
+import BedCheck from './BedCheck';
+import AmentiesCheck from './AmentiesCheck';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
 import { BASE_URL } from '../Config/Config';
-
-const StayData = [
-  {
-    id: 1,
-    name: '집 전체',
-    subTitle: '단독으로 사용하는 공간 전체',
-    isChecked: false,
-  },
-  {
-    id: 2,
-    name: '개인실',
-    subTitle: '집 또는 호텔의 개인실과 일부 공용 공간',
-    isChecked: false,
-  },
-  {
-    id: 3,
-    name: '다인실',
-    subTitle: '다른 사람들과 함께 사용하는 다인실 및 공용 공간',
-    isChecked: false,
-  },
-];
-
-const Amenities = [
-  { id: 1, name: '아침 식사', isChecked: false },
-  { id: 2, name: '실내 벽난로', isChecked: false },
-  { id: 3, name: '흡연 가능', isChecked: false },
-  { id: 4, name: '무선 인터넷', isChecked: false },
-  { id: 5, name: '주방', isChecked: false },
-  { id: 6, name: '난방', isChecked: false },
-];
 
 const FilterModal = ({
   handleFilterModal,
@@ -65,14 +35,6 @@ const FilterModal = ({
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  console.log(transferUserData);
-  console.log(`${BASE_URL}/rooms${location.search}`);
-
-  useEffect(() => {
-    setStayData(StayData);
-    setAmenitiesData(Amenities);
-  }, []);
 
   useEffect(() => {
     fetch(`${BASE_URL}/rooms${location.search}`)
@@ -284,124 +246,32 @@ const FilterModal = ({
         </ModalPosition>
         <InnerBox>
           <FormControl>
-            <TopContainer>
-              <TopInnerContainer>
-                <TopTitle>가격 범위</TopTitle>
-                <SubTitle>{`평균 1박 요금은 ₩${average.toLocaleString()}입니다`}</SubTitle>
-                <WidthContents>
-                  <AirbnbSlider
-                    minValue={minimum}
-                    maxValue={maximum}
-                    setValue={setValue}
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </WidthContents>
-
-                <PriceContainer>
-                  <PriceWrapContainer>
-                    <PriceTitle>최저 요금</PriceTitle>
-                    <PriceInputBox>
-                      <span>₩</span>
-                      <input value={value && value.value[0]} />
-                    </PriceInputBox>
-                  </PriceWrapContainer>
-                  <div>-</div>
-                  <PriceWrapContainer>
-                    <PriceTitle>최고 요금</PriceTitle>
-                    <PriceInputBox>
-                      <span>₩</span>
-                      <input value={value && value.value[1]} />
-                    </PriceInputBox>
-                  </PriceWrapContainer>
-                </PriceContainer>
-              </TopInnerContainer>
-            </TopContainer>
-            <MiddleContainer>
-              <MiddleInnerContainer>
-                <MiddleTitle>숙소 유형</MiddleTitle>
-                <WidthContents>
-                  <FormGroup>
-                    <InputSection>
-                      {stayData.map(data => {
-                        return (
-                          <InnerInput key={data.id}>
-                            <Checkbox
-                              checked={data.isChecked}
-                              name={data.name}
-                              onChange={changeHandle}
-                              sx={{
-                                '&.Mui-checked': {
-                                  color: 'black',
-                                },
-                              }}
-                            />
-                            <InnerTextBox>
-                              <InnerTitle>{data.name}</InnerTitle>
-                              <InnerSubtitle>{data.subTitle}</InnerSubtitle>
-                            </InnerTextBox>
-                          </InnerInput>
-                        );
-                      })}
-                    </InputSection>
-                  </FormGroup>
-                </WidthContents>
-              </MiddleInnerContainer>
-            </MiddleContainer>
-            <MiddleContainer>
-              <MiddleInnerContainer>
-                <MiddleTitle>침실과 침대</MiddleTitle>
-                <AmenitiesSubTitle>침실</AmenitiesSubTitle>
-                <WidthContents>
-                  <BedRoom
-                    bedroomValue={bedroomValue}
-                    changeBedroomValue={changeBedroomValue}
-                  />
-                </WidthContents>
-                <AmenitiesSubTitle>침대</AmenitiesSubTitle>
-                <WidthContents>
-                  <Bed bedValue={bedValue} changeBedValue={changeBedValue} />
-                </WidthContents>
-                <AmenitiesSubTitle>욕실</AmenitiesSubTitle>
-                <WidthContents>
-                  <BathRoom
-                    bathroomValue={bathroomValue}
-                    changeBathroomValue={changeBathroomValue}
-                  />
-                </WidthContents>
-              </MiddleInnerContainer>
-            </MiddleContainer>
-            <BottomContainer>
-              <BottomInnerContainer>
-                <MiddleTitle>편의시설</MiddleTitle>
-                <AmenitiesSubTitle>필수</AmenitiesSubTitle>
-                <WidthContents>
-                  <FormGroup>
-                    <InputSection>
-                      {amenitiesData.map((data, i) => {
-                        return (
-                          <AmenitiesInput key={data.id}>
-                            <Checkbox
-                              checked={data.isChecked}
-                              name={data.name}
-                              onChange={changeHandle}
-                              sx={{
-                                '&.Mui-checked': {
-                                  color: 'black',
-                                },
-                              }}
-                            />
-                            <AmenitiesTestBox>
-                              <InnerTitle>{data.name}</InnerTitle>
-                            </AmenitiesTestBox>
-                          </AmenitiesInput>
-                        );
-                      })}
-                    </InputSection>
-                  </FormGroup>
-                </WidthContents>
-              </BottomInnerContainer>
-            </BottomContainer>
+            <PriceCheck
+              minimum={minimum}
+              maximum={maximum}
+              setValue={setValue}
+              handleChange={handleChange}
+              value={value}
+              average={average}
+            />
+            <HomeType
+              stayData={stayData}
+              setStayData={setStayData}
+              changeHandle={changeHandle}
+            />
+            <BedCheck
+              bedValue={bedValue}
+              changeBedValue={changeBedValue}
+              bedroomValue={bedroomValue}
+              changeBedroomValue={changeBedroomValue}
+              bathroomValue={bathroomValue}
+              changeBathroomValue={changeBathroomValue}
+            />
+            <AmentiesCheck
+              amenitiesData={amenitiesData}
+              setAmenitiesData={setAmenitiesData}
+              changeHandle={changeHandle}
+            />
           </FormControl>
         </InnerBox>
         <ModalPosition>
@@ -550,154 +420,5 @@ const FooterButton = styled.button`
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
-  }
-`;
-
-const TopContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  width: 100%;
-  padding: 0 24px;
-  gap: 10px;
-  margin-top: 60px;
-`;
-
-const TopInnerContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  padding: 32px 0;
-  gap: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-`;
-
-const TopTitle = styled.div`
-  font-size: 22px;
-  font-weight: 400;
-`;
-
-const MiddleTitle = styled(TopTitle)`
-  padding-bottom: 24px;
-`;
-
-const SubTitle = styled.div`
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.5);
-  padding-bottom: 40px;
-`;
-
-const WidthContents = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 705px;
-`;
-
-const MiddleContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  width: 100%;
-  padding: 0 24px;
-  gap: 10px;
-`;
-
-const MiddleInnerContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  padding: 32px 0;
-  gap: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-`;
-
-const BottomContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  width: 100%;
-  padding: 0 24px;
-  gap: 10px;
-  margin-bottom: 60px;
-`;
-
-const BottomInnerContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  padding: 32px 0;
-  gap: 10px;
-`;
-
-const AmenitiesSubTitle = styled.span`
-  font-size: 16px;
-  font-weight: 400;
-  padding: 5px 0;
-`;
-
-const InputSection = styled.div`
-  ${props => props.theme.variables.flex('', 'flex-start', 'center')}
-  flex-wrap: wrap;
-`;
-
-const InnerInput = styled.div`
-  ${props => props.theme.variables.flex('', 'flex-start', 'center')}
-  width: 312.5px;
-  gap: 10px;
-  padding: 10px 0px;
-`;
-
-const AmenitiesInput = styled(InnerInput)`
-  gap: 5px;
-  padding: 0;
-`;
-
-const InnerTextBox = styled.div`
-  ${props => props.theme.variables.flex('column', 'flex-start', 'flex-start')}
-  gap: 7px;
-`;
-
-const AmenitiesTestBox = styled(InnerTextBox)`
-  gap: 3px;
-`;
-
-const InnerTitle = styled.div`
-  font-size: 16px;
-  font-weight: 400;
-`;
-
-const InnerSubtitle = styled.div`
-  font-size: 14px;
-  font-weight: 300;
-`;
-
-// 가격 컨테이너
-
-const PriceContainer = styled.div`
-  ${props => props.theme.variables.flex('', 'center', 'center')}
-  width: 100%;
-  gap: 5px;
-`;
-
-const PriceWrapContainer = styled.div`
-  ${props => props.theme.variables.flex('column', 'center', 'flex-start')}
-  padding: 10px;
-  gap: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 0.5rem;
-`;
-
-const PriceTitle = styled.div`
-  width: 305px;
-  font-size: 13px;
-  color: rgba(0, 0, 0, 0.4);
-`;
-
-const PriceInputBox = styled.div`
-  ${props => props.theme.variables.flex('', 'flex-start', 'center')}
-  width: 100%;
-  gap: 3px;
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.8);
-
-  input {
-    width: 100%;
-    border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    font-size: 14px;
-
-    &:focus {
-      outline: none;
-    }
   }
 `;
