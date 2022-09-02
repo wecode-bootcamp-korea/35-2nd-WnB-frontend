@@ -55,7 +55,7 @@ const ProfileLoginContainer = ({
                     return (
                       <UserInfoMenu
                         key={j}
-                        onClick={j === 1 ? deleteToken : null}
+                        onClick={idx === 2 && j === 1 ? deleteToken : null}
                       >
                         <InfoMenuText>{text}</InfoMenuText>
                       </UserInfoMenu>

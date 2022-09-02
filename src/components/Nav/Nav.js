@@ -55,14 +55,6 @@ const Nav = () => {
     setModalIsOpen(prev => !prev);
   };
 
-  // if (localStorage.getItem('key')) {
-  //   setModalIsOpen(false);
-  //   setSignupIsOpen(true);
-  // } else {
-  //   setModalIsOpen(true);
-  //   setSignupIsOpen(false);
-  // }
-
   return (
     <>
       <div>

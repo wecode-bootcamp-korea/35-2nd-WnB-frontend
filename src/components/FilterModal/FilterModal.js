@@ -67,6 +67,7 @@ const FilterModal = ({
   const location = useLocation();
 
   console.log(transferUserData);
+  console.log(`${BASE_URL}/rooms${location.search}`);
 
   useEffect(() => {
     setStayData(StayData);
