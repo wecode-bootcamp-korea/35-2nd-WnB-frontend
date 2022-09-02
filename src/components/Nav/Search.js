@@ -107,8 +107,7 @@ const Search = ({
     <SearchSection>
       {locationModalIsOpen || dateModalIsOpen || guestModalIsOpen ? (
         <ModalOverLay onClick={overLayClick} ref={modalRef} />
-      ) : // <ModalOverLayWhite onClick={overLayClick} ref={modalRef} />
-      null}
+      ) : null}
       <SearchBarContainer>
         <WrapperLocationContainer
           className={currentId === 1 ? 'is_open' : null}

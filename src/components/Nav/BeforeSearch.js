@@ -54,7 +54,7 @@ const BeforeSearch = ({
       detail={is_detail}
     >
       <OnClickSearchSection
-        className={is_detail === '/detail' ? 'detail_width' : null}
+        className={is_detail.includes('detail') ? 'detail_width' : null}
       >
         <TopNavSection>
           <LogoContainer onClick={reroad}>
@@ -117,7 +117,8 @@ const BeforeSearch = ({
 export default BeforeSearch;
 
 const SectionBefore = styled.div`
-  position: ${props => (props.detail === '/detail' ? 'relative' : 'fixed')};
+  position: ${props =>
+    props.detail.includes('/detail') ? 'relative' : 'fixed'};
   top: 0;
   left: 0;
   width: 100%;
