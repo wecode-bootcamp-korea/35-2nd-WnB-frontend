@@ -153,5 +153,73 @@ const BeforeSearch = ({
   }
 `;
 ```
-3. filter 컴포넌트를 작성할때
+3. filter 컴포넌트를 작성할때 고려해야 했던 로직 순서가 있었습니다.
+   - 백엔드로 부터 현 메인페이지에 있는 숙소 데이터를 가져옵니다.
+   - 가져온 데이터를 기반으로 침대갯수, 숙소유형 등 필터링을 통해 데이터를 변경하고 이는 실시간으로 화면에 표현되어야 합니다.
+   - 필터의 적용이 끝나고 적용을 누를 시 변경된 부분을 navigate 를 통해 url의 파라미터로 전달한 뒤, 메인페이지에서 url을통해 백엔드에게 요청해야합니다.
+  이러한 로직을 구현함에 있어서 계속 구현이 되지 않았던 부분은 필터가 적용이 될 때마다 실시간으로 데이터를 변경시켜 렌더를 다시 시키는 부분과, 필터 체크박스를 중첩으로 
+  적용시키거나 제외할때마다 그에 맞는 데이터를 화면에 랜더링 하는 부분이이었습니다. filter 메서드를 활용해야겠다 생각했지만, 필터 체크박스를 체크했다 제외했다를 반복하다
+  보니 숙소 데이터가 이미 filter 메서드로 변경되어있었기에 최초 숙소 데이터로 복귀시키지 못해 구현을 못하고 있었습니다. 그러다 1차 프로젝트 때 useEffect 의 라이프 사이클을
+  활욜했던 기억이 떠올라서 이를 활용해보면 가능하지않을까 생각했습니다.
+  
+  필터 역시 모달창이고 내부의 화면을 업데이트 시키는 것이니, useEffect 의 라이프사이클 중 업데이트 부분을 활용해야겠다 생각했고, 필터값(state로 관리되는)들이 변화가 생길때마다
+  useEffect 의 의존성 배열을 활용하여 필터값이 변경될때마다 숙소 데이터를 업데이트 시켜주는 방식으로 구현을 해봤습니다. 결과적으로 실시간으로 필터값에 따라 숙소데이터를 화면에 잘
+  랜더링 하게 되어 일단 해결하였습니다.
+```
+  const applyFilter = () => {
+    let updatelist = copyData.current; // 원본 숙소 데이터의 복사본을 가져온다.
+
+    if (bedroomValue) { // 필터가 적용된 부분에 관하여 숙소 데이터를 필터해서 업데이트 해준다.
+      updatelist = updatelist.filter(data => data.bedroom === bedroomValue);
+    }
+
+    if (bedValue) {
+      updatelist = updatelist.filter(data => data.bed === bedValue);
+    }
+
+    if (bathroomValue) {
+      updatelist = updatelist.filter(data => data.bathroom === bathroomValue);
+    }
+
+    const TempChecked = stayData
+      .filter(item => item.isChecked)
+      .map(item => item.id);
+    const AmentiChecked = amenitiesData.filter(item => item.isChecked);
+
+    if (TempChecked.length) {
+      updatelist = updatelist.filter(data =>
+        TempChecked.includes(data.room_type)
+      );
+    }
+
+    if (AmentiChecked.length) {
+      const checkedType = AmentiChecked.map(data =>
+        data.name.replace(/(\s*)/g, '')
+      );
+      const isTrue = current => current === true;
+      updatelist = updatelist.filter(item =>
+        checkedType
+          .map(data => item.facilities.join('').includes(data))
+          .every(isTrue)
+      );
+    }
+
+    if (priceSetting.length) {
+      updatelist = updatelist.filter(
+        item =>
+          item.room_price >= value.value[0] && item.room_price <= value.value[1]
+      );
+    }
+
+    setTransferUserData(updatelist); // 필터된 숙소 데이터를 렌더링할 데이터로 
+  };
+  
+  // useEffect 로 필터함수 재실행
+    useEffect(() => {
+    applyFilter();
+  }, [bedroomValue, bedValue, bathroomValue, stayData, amenitiesData, value]);
+```
+
+  
+  
 
