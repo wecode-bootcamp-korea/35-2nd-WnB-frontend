@@ -79,3 +79,79 @@ const ProfileContainer = ({setProfileModal, switchModal}) = {
   );
   }
   ```
+2. Nav 의 최대 가로폭이 메인페이지와 상세페이지 간의 차이가 발생하도록 설정을 해야했고, position 역시 기존 fixed 에서 relative 로 변경이 되어야만 했습니다. 
+   조건부로 스타일에 변경을 주어야 하겠다 생각하였지만 바로 방법이 떠오르지는 않았습니다. 두 페이지 간의 차이점은 URL 주소에서 나타난다는 점을 착안하여서 만일 주소에
+   상세페이지의 라우트 주소인 '/detail' 이 마지막에 pathname 으로 존재하는지의 여부를 조건으로 걸어서 스타일을 변경하도록 로직을 구성하고자 하였습니다.
+   
+   다만 처음에 이렇게 적용을 하니 문제가 발생하였는데, 처음 로직을 구성할때는 pathname 이 완전히 '/detail' 경우에 한해서 스타일을 적용하도록 작성하였기 때문에, 각각의
+   숙소에 대한 pathname '/detail/1,2'... 등 변경되는 상세페이지에 대해서는 반응하지 못하였습니다. 좀 더 고민을 하다가 pathname 에 '/detail' 이 포함되어 있다면 
+   스타일을 적용하는 방식으로 전환하여 해결하였습니다.
+```
+const BeforeSearch = ({
+  startDate,
+  endDate,
+  location,
+  guest,
+  
+	// 생략
+    
+  modalIsOpen,
+  setModalIsOpen,
+  switchModal,
+  reroad,
+}) => {
+  let uselocation = useLocation();
+  let is_detail = uselocation.pathname;
+
+  // 생략
+
+  return (
+    <SectionBefore
+      className={toggleNavbar ? 'toggle_open' : null}
+      detail={is_detail}
+    >
+      <OnClickSearchSection // 포함여부를 따진다. 포함하면 클래스 'detail_width' 적용
+        className={is_detail.includes('detail') ? 'detail_width' : null}
+      >
+        <TopNavSection>
+          <LogoContainer onClick={reroad}>
+          
+          // 생략
+          
+   )
+   
+ const SectionBefore = styled.div`
+  position: ${props => 
+    props.detail.includes('/detail') ? 'relative' : 'fixed'};
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  opacity: 0;
+  z-index: 102;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &.toggle_open {
+    opacity: 1;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
+    animation-name: ${fadeIn};
+    animation-fill-mode: both;
+  }
+`;
+   
+  const OnClickSearchSection = styled.div`
+  width: 100%;
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 0 80px;
+
+  &.detail_width {
+    padding: 0;
+    max-width: 1170px;
+  }
+`;
+```
+3. filter 컴포넌트를 작성할때
+
