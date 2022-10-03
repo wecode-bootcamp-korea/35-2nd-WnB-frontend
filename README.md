@@ -42,4 +42,40 @@
 * useLocation 의 pathname을 응용하여 조건부 Nav 구현
 * useEffect의 의존성 배열을 활용하여 실시간 필터링된 데이터 렌더링
 
-
+## 구현 시 어려웠던 부분
+1. Nav 구현 중 로그인, 회원가입 등 옵션을 선택할 수 있는 프로필 모달창을 만들었어야 했는데, 로그인 버튼을 클릭할 시 다른 모달창의 overlay 속성에 의해 로그인이 눌리지 않고
+   모달창이 닫히는 현상이 발생하였습니다. 처음에는 프로필 모달창(로그인 하기 버튼이있는)의 z-index 값을 더 높혀서 처리하려 했으나 잘 되지 않았고, 방법을 찾아보다가 로그인 버튼을
+   누르는 이벤트가 더 상위인 overlay 클릭 이벤트까지 도달하지 않는다면 될 것이라 판단하였습니다. 상위 이벤트까지 버블링 되는 것을 막는 방법으로 event.stopPropagation()을 
+   활용하니 로그인 버튼을 클릭해도 모달창이 닫히지 않게되어 해결되었습니다.
+   
+```
+const ProfileContainer = ({setProfileModal, switchModal}) = {
+ return (
+    <>
+      <ModalOverlayInUserInfo onClick={() => setProfileModal(false)} />
+      <ModalProfile onClick={e => e.stopPropagation()}>
+        <TopContainer>
+          <UserInfoMenu onClick={switchModal}>
+            <InfoMenuLogin>로그인</InfoMenuLogin>
+          </UserInfoMenu>
+          <UserInfoMenu>
+            <InfoMenuText>회원가입</InfoMenuText>
+          </UserInfoMenu>
+        </TopContainer>
+        <DivLine />
+        <BottomContainer>
+          <UserInfoMenu>
+            <InfoMenuText>숙소 호스트되기</InfoMenuText>
+          </UserInfoMenu>
+          <UserInfoMenu>
+            <InfoMenuText>체험 호스팅하기</InfoMenuText>
+          </UserInfoMenu>
+          <UserInfoMenu>
+            <InfoMenuText>도움말</InfoMenuText>
+          </UserInfoMenu>
+        </BottomContainer>
+      </ModalProfile>
+    </>
+  );
+  }
+  ```
