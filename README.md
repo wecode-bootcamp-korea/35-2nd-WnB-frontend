@@ -33,3 +33,13 @@
 * 구글지도 API를 활용하여 해당 페이지의 숙소목록을 지도마커로 가격이 표기되도록 구현
 * 숙소 상세 페이지 (datepicker를 활용한 캘린더에서 날짜 선택 후 예약 기능 구현)
 * 예약 목록 및 상세페이지 (fetch - delete 메소드를 활용하여 예약 취소 기능 구현)
+
+## 담당하였던 Part
+* Nav, 숙소 필터링 기능 담당
+* useNavigate 응용 필터 데이터 백엔드 API 로 전달
+* Date picker 활용 날짜예약 구현
+* material UI 활용 숙소의 가격, 종류 등 필터입력 구현
+* useLocation 의 pathname을 응용하여 조건부 Nav 구현
+* useEffect의 의존성 배열을 활용하여 실시간 필터링된 데이터 렌더링
+
+
