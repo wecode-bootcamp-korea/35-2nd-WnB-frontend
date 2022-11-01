@@ -1,9 +1,10 @@
 <div align="center">
+<img src="public/images/we&B_logo.png" width="200px" heigth="auto"/>
   <img src="https://user-images.githubusercontent.com/106301980/189577814-b2496dcf-9b0c-4890-afd5-2c4a238abff5.gif" width="100%"/>
 </div>
   <br/>
 
-<h1 align="center"> <img src="public/images/we&B_logo.png" width="200px" heigth="auto"/></h1>
+<h1 align="center">We & B</h1>
 <h3 align="center"> 세계 최대 숙박 공유 서비스 Airbnb를 모티브한 팀프로젝트 </h3> 
 <br />
 
