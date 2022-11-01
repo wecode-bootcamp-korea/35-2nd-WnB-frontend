@@ -3,7 +3,7 @@
 </div>
   <br/>
 
-<h1 align="center"> <img src="public/images/we&B_logo.png" width="50px" heigth="auto"/>We & B </h1>
+<h1 align="center"> <img src="public/images/we&B_logo.png" width="200px" heigth="auto"/>We & B </h1>
 <h3 align="center"> 세계 최대 숙박 공유 서비스 Airbnb를 모티브한 팀프로젝트 </h3> 
 <br />
 
