@@ -1,10 +1,14 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Signup from '../../pages/Signup/Signup';
 
-const SignModal = props => {
-  let { modalIsOpen, setModalIsOpen } = props;
+import { openLoginModal } from '../../reducers/nav';
+
+const SignModal = () => {
+  const dispatch = useDispatch();
+  const { isOpenLoginModal } = useSelector(state => state.nav);
 
   const modalStyle = {
     overlay: {
@@ -34,14 +38,14 @@ const SignModal = props => {
 
   return (
     <Modal
-      isOpen={modalIsOpen}
+      isOpen={isOpenLoginModal}
       style={modalStyle}
       ariaHideApp={false}
-      onRequestClose={() => setModalIsOpen(prev => !prev)}
+      onRequestClose={() => dispatch(openLoginModal())}
     >
-      <Close onClick={() => setModalIsOpen(prev => !prev)}>닫기</Close>
+      <Close onClick={() => dispatch(openLoginModal())}>닫기</Close>
       <ModalWrap>
-        <Signup modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+        <Signup />
       </ModalWrap>
     </Modal>
   );

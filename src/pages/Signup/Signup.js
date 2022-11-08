@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import UserInfo from './UserInfo';
 
-const Signup = props => {
-  const { modalIsOpen, setModalIsOpen } = props;
+const Signup = () => {
   return (
     <SignWapper>
       <SignTitle>회원가입</SignTitle>
       <Signinfo>
         <Welcome>사용자 정보를 입력해주세요..</Welcome>
-        <UserInfo modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+        <UserInfo />
       </Signinfo>
     </SignWapper>
   );

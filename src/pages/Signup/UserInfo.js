@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { BASE_URL } from '../../components/Config/Config';
 
-const UserInfo = ({ modalIsOpen, setModalIsOpen }) => {
+import { openLoginModal } from '../../reducers/nav';
+
+const UserInfo = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const userData = () => {
@@ -21,7 +25,7 @@ const UserInfo = ({ modalIsOpen, setModalIsOpen }) => {
       .then(data => {
         if (data.message === 'USER_INFO_UPDATED') {
           alert('회원정보 수정에 성공했습니다!');
-          setModalIsOpen(false);
+          dispatch(openLoginModal());
           navigate('/');
         } else {
           alert(`${MESSAAGE_ALERT[data.message]}`);

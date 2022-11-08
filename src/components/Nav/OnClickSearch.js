@@ -5,7 +5,9 @@ import { fadeIn, shadow } from '../../styles/animation';
 import ProfileContainer from './modal/ProfileContainer';
 import ProfileLoginContainer from './modal/ProfileLoginContainer';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { clickSearchBar, clickUserInfoButton } from '../../reducers/nav';
 
 const OnClickSearch = ({
   startDate,
@@ -16,44 +18,28 @@ const OnClickSearch = ({
   onChange,
   increseNum,
   decreseNum,
-  toggleNavbar,
-  toggleNav,
   modalRef,
-  setToggleNavbar,
-  profileModal,
-  setProfileModal,
-  clickUserInfo,
-  modalIsOpen,
-  setModalIsOpen,
-  switchModal,
   reroad,
 }) => {
-  const { isToken } = useSelector(state => state.nav);
+  const dispatch = useDispatch();
+  const { isToken, isClickSearch, isClickUserInfoButton } = useSelector(
+    state => state.nav
+  );
   let uselocation = useLocation();
   let is_detail = uselocation.pathname;
 
   const swtichProfileModal = {
-    1: (
-      <ProfileContainer
-        profileModal={profileModal}
-        setProfileModal={setProfileModal}
-        modalIsOpen={modalIsOpen}
-        setModalIsOpen={setModalIsOpen}
-        switchModal={switchModal}
-      />
-    ),
-    2: (
-      <ProfileLoginContainer
-        profileModal={profileModal}
-        setProfileModal={setProfileModal}
-      />
-    ),
+    1: <ProfileContainer />,
+    2: <ProfileLoginContainer />,
   };
 
   return (
-    <Section className={toggleNavbar ? null : 'toggle_open zIndex'}>
-      {!toggleNavbar ? (
-        <ModalOverLay onClick={() => setToggleNavbar(true)} ref={modalRef} />
+    <Section className={isClickSearch ? null : 'toggle_open zIndex'}>
+      {!isClickSearch ? (
+        <ModalOverLay
+          onClick={() => dispatch(clickSearchBar())}
+          ref={modalRef}
+        />
       ) : null}
       <OnClickSearchSection
         className={is_detail === '/detail' ? 'detail_width' : null}
@@ -73,7 +59,9 @@ const OnClickSearch = ({
               <i className="bx bx-world" />
             </UserIconContainer>
             <InfoPositionSet>
-              <UserInfoContainer onClick={clickUserInfo}>
+              <UserInfoContainer
+                onClick={() => dispatch(clickUserInfoButton())}
+              >
                 <UserInfoMenu>
                   <i className="bx bx-menu" />
                 </UserInfoMenu>
@@ -81,7 +69,7 @@ const OnClickSearch = ({
                   <i className="bx bxs-user-circle" />
                 </UseerInfoIcon>
               </UserInfoContainer>
-              {profileModal &&
+              {isClickUserInfoButton &&
                 (isToken ? swtichProfileModal['2'] : swtichProfileModal['1'])}
             </InfoPositionSet>
           </UserSection>
@@ -96,10 +84,7 @@ const OnClickSearch = ({
             onChange={onChange}
             increseNum={increseNum}
             decreseNum={decreseNum}
-            toggleNav={toggleNav}
-            toggleNavbar={toggleNavbar}
             modalRef={modalRef}
-            setToggleNavbar={setToggleNavbar}
           />
         </BottomNavSection>
       </OnClickSearchSection>

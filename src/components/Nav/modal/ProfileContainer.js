@@ -1,19 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-const ProfileContainer = ({
-  profileModal,
-  setProfileModal,
-  modalIsOpen,
-  setModalIsOpen,
-  switchModal,
-}) => {
+import { clickUserInfoButton } from '../../../reducers/nav';
+import { switchModal } from '../../../reducers/nav';
+
+const ProfileContainer = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
-      <ModalOverlayInUserInfo onClick={() => setProfileModal(false)} />
+      <ModalOverlayInUserInfo onClick={() => dispatch(clickUserInfoButton())} />
       <ModalProfile onClick={e => e.stopPropagation()}>
         <TopContainer>
-          <UserInfoMenu onClick={switchModal}>
+          <UserInfoMenu onClick={() => dispatch(switchModal())}>
             <InfoMenuLogin>로그인</InfoMenuLogin>
           </UserInfoMenu>
           <UserInfoMenu>
