@@ -4,19 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { TOKEN_DELETE } from '../../../reducers/nav';
+import { clickUserInfoButton, switchModal } from '../../../reducers/nav';
 
-const ProfileLoginContainer = ({
-  profileModal,
-  setProfileModal,
-  switchModal,
-}) => {
+const ProfileLoginContainer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const deleteToken = () => {
     localStorage.removeItem('Token');
     localStorage.removeItem('key');
     alert('로그아웃 되었습니다.');
-    setProfileModal(false);
+    dispatch(clickUserInfoButton());
     dispatch({
       type: TOKEN_DELETE,
     });
@@ -24,12 +22,12 @@ const ProfileLoginContainer = ({
 
   const moveToResList = () => {
     navigate('/resList');
-    setProfileModal(false);
+    dispatch(clickUserInfoButton());
   };
 
   return (
     <>
-      <ModalOverlayInUserInfo onClick={() => setProfileModal(false)} />
+      <ModalOverlayInUserInfo onClick={() => dispatch(clickUserInfoButton())} />
       <ModalProfile onClick={e => e.stopPropagation()}>
         {CONTAINER.map((List, idx) => {
           return (
@@ -43,7 +41,7 @@ const ProfileLoginContainer = ({
                         onClick={
                           j === 2 || j === 3
                             ? j === 3
-                              ? switchModal
+                              ? () => dispatch(switchModal())
                               : moveToResList
                             : null
                         }
