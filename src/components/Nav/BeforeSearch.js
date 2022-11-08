@@ -4,6 +4,7 @@ import ProfileContainer from './modal/ProfileContainer';
 import ProfileLoginContainer from './modal/ProfileLoginContainer';
 import { fadeIn, shadow } from '../../styles/animation';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const BeforeSearch = ({
   startDate,
@@ -15,13 +16,12 @@ const BeforeSearch = ({
   profileModal,
   setProfileModal,
   clickUserInfo,
-  isToken,
-  setIsToken,
   modalIsOpen,
   setModalIsOpen,
   switchModal,
   reroad,
 }) => {
+  const { isToken } = useSelector(state => state.nav);
   let uselocation = useLocation();
   let is_detail = uselocation.pathname;
 
@@ -33,16 +33,12 @@ const BeforeSearch = ({
         modalIsOpen={modalIsOpen}
         setModalIsOpen={setModalIsOpen}
         switchModal={switchModal}
-        isToken={isToken}
-        setIsToken={setIsToken}
       />
     ),
     2: (
       <ProfileLoginContainer
         profileModal={profileModal}
         setProfileModal={setProfileModal}
-        isToken={isToken}
-        setIsToken={setIsToken}
         switchModal={switchModal}
       />
     ),

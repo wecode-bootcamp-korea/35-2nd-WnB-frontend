@@ -7,8 +7,6 @@ const ProfileContainer = ({
   modalIsOpen,
   setModalIsOpen,
   switchModal,
-  isToken,
-  setIsToken,
 }) => {
   return (
     <>

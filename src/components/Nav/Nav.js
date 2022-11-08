@@ -1,10 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
+
 import LoginModal from '../Modal/LoginModal';
 import SignModal from '../Modal/SignModal';
 import BeforeSearch from './BeforeSearch';
 import OnClickSearch from './OnClickSearch';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { TOKEN_DELETE, TOKEN_EXIST } from '../../reducers/nav';
+
 const Nav = () => {
+  const dispatch = useDispatch();
+  const { isToken } = useSelector(state => state.nav);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [location, setLocation] = useState('지도표시지역');
@@ -13,14 +19,18 @@ const Nav = () => {
   const [profileModal, setProfileModal] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [signupIsOpen, setSignupIsOpen] = useState(true);
-  const [isToken, setIsToken] = useState(false);
+  // const [isToken, setIsToken] = useState(false);
   const modalRef = useRef();
 
   useEffect(() => {
     if (localStorage.getItem('Token')) {
-      setIsToken(true);
+      dispatch({
+        type: TOKEN_EXIST,
+      });
     } else {
-      setIsToken(false);
+      dispatch({
+        type: TOKEN_DELETE,
+      });
     }
   }, [isToken]);
 
@@ -72,8 +82,6 @@ const Nav = () => {
           profileModal={profileModal}
           setProfileModal={setProfileModal}
           clickUserInfo={clickUserInfo}
-          isToken={isToken}
-          setIsToken={setIsToken}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           switchModal={switchModal}
@@ -95,8 +103,6 @@ const Nav = () => {
           profileModal={profileModal}
           setProfileModal={setProfileModal}
           clickUserInfo={clickUserInfo}
-          isToken={isToken}
-          setIsToken={setIsToken}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           switchModal={switchModal}
