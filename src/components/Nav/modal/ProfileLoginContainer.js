@@ -1,21 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { TOKEN_DELETE } from '../../../reducers/nav';
 
 const ProfileLoginContainer = ({
   profileModal,
   setProfileModal,
-  isToken,
-  setIsToken,
   switchModal,
 }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const deleteToken = () => {
     localStorage.removeItem('Token');
     localStorage.removeItem('key');
     alert('로그아웃 되었습니다.');
-    setIsToken(false);
     setProfileModal(false);
+    dispatch({
+      type: TOKEN_DELETE,
+    });
   };
 
   const moveToResList = () => {
